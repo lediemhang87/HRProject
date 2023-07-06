@@ -1,0 +1,66 @@
+.signin{
+    font-family: 'Mulish', sans-serif;
+    font-size: 18px;
+   
+    .sign-in-container{
+        min-height: 100vh;
+        @media (min-width: 900px) {
+            background: rgb(255,255,255);
+            background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(250,233,226,1) 24%, rgba(255,255,255,1) 48%, rgba(255,255,255,1) 100%);
+        }
+        @media (max-width: 900px) {
+            background: rgb(255,255,255);
+            background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(250,233,226,1) 50%, rgba(255,255,255,1) 100%);
+        
+        }
+    
+    }
+
+    .logo{
+        margin-left: 15vw;
+    }
+
+    .carousel{
+        width: 40rem;
+        height: 40rem;
+    }
+
+    .content-container{
+        display: flex;
+        height: 100%;
+        align-items: center;
+    }
+    .content{
+        text-align: center;
+        width: 100%;
+    }
+    .title{
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 50px;
+    }
+    .sign-in-to-your{
+        margin-right: 3px;
+    }
+    
+    .input-sign-in-info .input-box{
+        border-radius: 10px;
+        border-color: rgb(201, 201, 201) ;
+        width: 80%;
+        height: 50px;
+        margin-bottom: 10px;
+    }
+    .forgot-password{
+        text-align: right;
+        margin: 15px 10%;
+    }
+    .button{
+        color: white;
+        background-color: #F3723F;
+        border-radius: 10px;
+        width: 80%;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+    
+}

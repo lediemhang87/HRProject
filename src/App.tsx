@@ -1,12 +1,13 @@
 import {useEffect} from 'react'
 import { Route, Routes } from "react-router-dom"
-import { Home } from "./pages";
-
+// import { Home } from "./pages";
+import Signin from './pages/signin-page/signin';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 import { Toaster } from "react-hot-toast";
-import Signin from './pages/signin-page/signin';
+import 'bootstrap/dist/css/bootstrap.css';
+
 
 const App = () => {
   useEffect(() => {
@@ -19,8 +20,7 @@ const App = () => {
     <Toaster />
    
       <Routes>
-          <Route path="/" element={<Home />}/>
-          <Route path="/signin" element={<Signin />}/>
+          <Route path="/" element={<Signin />}/>
           
       </Routes>
     </div>
