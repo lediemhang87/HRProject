@@ -29,6 +29,7 @@
     "react-otp-input": "^3.0.0",
     "react-router-dom": "^6.8.2",
     "react-timezone-select": "^2.1.0",
+    "sass": "^1.63.6",
     "swiper": "^9.1.1",
     "vite-plugin-svgr": "^2.4.0"
   },
