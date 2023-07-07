@@ -1,7 +1,7 @@
 import {useEffect} from 'react'
 import { Route, Routes } from "react-router-dom"
-// import { Home } from "./pages";
 import Signin from './pages/signin-page/signin';
+import Dashboard from './pages/dashboard-page/dashboard';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -21,6 +21,8 @@ const App = () => {
    
       <Routes>
           <Route path="/" element={<Signin />}/>
+          <Route path="/dashboard" element={<Dashboard/>}/>
+
           
       </Routes>
     </div>
