@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import Chart from 'chart.js';
 
-const MixedChartComponent = () => {
+const TotalRevenueChart = () => {
   const chartRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
@@ -10,39 +10,23 @@ const MixedChartComponent = () => {
 
       if (ctx) {
         const gradient = ctx.createLinearGradient(0, 0, 0, chartRef.current.height);
-        gradient.addColorStop(0, 'rgba(111,201,184,0.6)'); // Start color
+        gradient.addColorStop(0, 'rgb(180, 180, 180,0.5)'); // Start color
         gradient.addColorStop(1, 'rgba(255, 255, 255, 0)'); 
 
         const data = {
-          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+          labels: ['May', 'June', 'July', 'Aug', 'Sep', 'Oct'],
           datasets: [
-            {
-              type: 'bar',
-              label: 'Bar Dataset',
-              backgroundColor: 'black',
-              barPercentage: 0.1,
-              categoryPercentage: 0.8, 
-              data: [75,80,73,100,50,100,82,75,95,35,75,100],
-            },
+            
             {
               type: 'line',
               label: 'Line Dataset',
               backgroundColor: gradient,
-              borderColor: 'rgba(111,201,184)',
+              borderColor: '#0D99FF',
               borderWidth: 1,
-              data: [45, 65, 60, 75, 50, 55, 45, 55, 75, 45, 50, 42], 
+              data: [620, 680, 600, 700, 620, 710], 
               tension: 0,
             },
-            {
-                type: 'line',
-                label: 'Red Dashed Line',
-                borderColor: 'rgba(255, 99, 99, 1)',
-                backgroundColor: 'transparent',
-                borderWidth: 1,
-                borderDash: [5, 5], 
-                data: [28, 25, 45, 27, 25,30, 23, 45, 32, 23, 30, 24], 
-                tension: 0,
-              },
+            
           ],
         };
 
@@ -52,7 +36,7 @@ const MixedChartComponent = () => {
             yAxes: [
               {
                 ticks: {
-                    stepSize: 25,
+                  stepSize: 200,
                   beginAtZero: true,
                 },
               },
@@ -76,4 +60,4 @@ const MixedChartComponent = () => {
   return <canvas ref={chartRef} />;
 };
 
-export default MixedChartComponent;
+export default TotalRevenueChart;

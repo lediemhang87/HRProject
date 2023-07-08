@@ -3,7 +3,9 @@ import Navbar from "../../components/Navbar"
 import Sidebar from "../../components/Sidebar"
 import { Container, Row, Col } from "react-bootstrap"
 import DashboardRectangle from "../../components/dashboard/dashboard-rectangle"
-
+import DashboardMixedChartDiv from "../../components/dashboard/dashboard-mixedchart-div"
+import DashboardMyToDoItems from "../../components/dashboard/dashboard-mytodoitems"
+import DashboardTotalRevenue from "../../components/dashboard/dashboard-totalrevenue"
 import './dashboard-style.scss'
 const Dashboard: React.FC = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -41,8 +43,12 @@ const Dashboard: React.FC = () => {
                         <Row>
                             <Col lg={9}>
                                 <DashboardRectangle/>
+                                <Row>
+                                    <Col lg={8}> <DashboardMixedChartDiv/> </Col>
+                                    <Col lg={4}> <DashboardMyToDoItems/> </Col>
+                                </Row>
                             </Col>
-                            <Col lg={3}> Total Revenue </Col>
+                            <Col lg={3}> <DashboardTotalRevenue/> </Col>
                         </Row>
                     </Col>
                     
