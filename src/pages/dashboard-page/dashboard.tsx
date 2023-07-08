@@ -6,7 +6,13 @@ import DashboardRectangle from "../../components/dashboard/dashboard-rectangle"
 import DashboardMixedChartDiv from "../../components/dashboard/dashboard-mixedchart-div"
 import DashboardMyToDoItems from "../../components/dashboard/dashboard-mytodoitems"
 import DashboardTotalRevenue from "../../components/dashboard/dashboard-totalrevenue"
+import DashboardTable from "../../components/dashboard/dashboard-table"
+import DashboardLocation from "../../components/dashboard/dashboard-location"
 import './dashboard-style.scss'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFileExport } from '@fortawesome/free-solid-svg-icons'
+
 const Dashboard: React.FC = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [isPhoneMode, setIsPhoneMode] = useState(false);
@@ -14,6 +20,35 @@ const Dashboard: React.FC = () => {
     const toggleSidebar = (): void => {
         setIsSidebarOpen(!isSidebarOpen);
     };
+    const employees = [ 'Liam Risher', 'Oliver Noah', 'Donald Benjamin', 'Elijah James', 'William Risher', 'Jane Doe', 'John Doe']
+
+    const activeProjects = [
+        { projectName: 'Batman', projectLead: 0, process: 100, assignee: [0, 4, 5, 6], status: 'inprogress', due: '09/24/2021' },
+        { projectName: 'Bender Project', projectLead: 1, process: 30, assignee: [0, 5, 6], status: 'pending', due: '09/24/2021' },
+        { projectName: 'Bigfish', projectLead: 2, process: 76, assignee: [0, 5, 6], status: 'inprogress', due: '09/24/2021' },
+        { projectName: 'Canary', projectLead: 3, process: 40, assignee: [0, 5, 6], status: 'completed', due: '09/24/2021' },
+        { projectName: 'Casanova', projectLead: 4, process: 53, assignee: [0, 5, 6], status: 'inprogress', due: '09/24/2021' },
+        { projectName: 'Example 6', projectLead: 0, process: 53, assignee: [1, 3, 5], status: 'inprogress', due: '09/24/2021' },
+        { projectName: 'Example 7', projectLead: 1, process: 30, assignee: [2, 4, 6], status: 'pending', due: '09/24/2021' },
+        { projectName: 'Example 8', projectLead: 2, process: 30, assignee: [0, 3, 5], status: 'inprogress', due: '09/24/2021' },
+        { projectName: 'Example 9', projectLead: 3, process: 40, assignee: [1, 4, 6], status: 'completed', due: '09/24/2021' },
+        { projectName: 'Example 10', projectLead: 4, process: 53, assignee: [2, 3, 5], status: 'inprogress', due: '09/24/2021' },
+        { projectName: 'Example 11', projectLead: 0, process: 53, assignee: [0, 1, 3], status: 'inprogress', due: '09/24/2021' },
+        { projectName: 'Example 12', projectLead: 1, process: 30, assignee: [2, 4, 6], status: 'pending', due: '09/24/2021' },
+        { projectName: 'Example 13', projectLead: 2, process: 30, assignee: [0, 1, 5], status: 'inprogress', due: '09/24/2021' },
+        { projectName: 'Example 14', projectLead: 3, process: 40, assignee: [2, 3, 4], status: 'completed', due: '09/24/2021' },
+        { projectName: 'Example 15', projectLead: 4, process: 53, assignee: [1, 4, 5], status: 'inprogress', due: '09/24/2021' },
+        { projectName: 'Example 16', projectLead: 0, process: 53, assignee: [0, 2, 6], status: 'inprogress', due: '09/24/2021' },
+        { projectName: 'Example 17', projectLead: 1, process: 30, assignee: [1, 3, 5], status: 'pending', due: '09/24/2021' },
+        { projectName: 'Example 18', projectLead: 2, process: 30, assignee: [2, 4, 6], status: 'inprogress', due: '09/24/2021' },
+        { projectName: 'Example 19', projectLead: 3, process: 40, assignee: [0, 3, 5], status: 'completed', due: '09/24/2021' },
+        { projectName: 'Example 20', projectLead: 4, process: 53, assignee: [1, 4, 6], status: 'inprogress', due: '09/24/2021' },
+        { projectName: 'Example 21', projectLead: 0, process: 53, assignee: [2, 3, 5], status: 'inprogress', due: '09/24/2021' },
+        { projectName: 'Example 22', projectLead: 1, process: 30, assignee: [0, 1, 3], status: 'pending', due: '09/24/2021' },
+        { projectName: 'Example 23', projectLead: 2, process: 30, assignee: [2, 4, 6], status: 'inprogress', due: '09/24/2021' },
+        { projectName: 'Example 24', projectLead: 3, process: 40, assignee: [0, 1, 5], status: 'completed', due: '09/24/2021' },
+        { projectName: 'Example 25', projectLead: 4, process: 53, assignee: [2, 3, 5], status: 'inprogress', due: '09/24/2021' },
+      ];
 
     useEffect(() => {
         const handleResize = (): void => {
@@ -50,11 +85,31 @@ const Dashboard: React.FC = () => {
                             </Col>
                             <Col lg={3}> <DashboardTotalRevenue/> </Col>
                         </Row>
+                        <Row>
+                            <Col lg={6}>
+                                <div className="active-projects">
+                                    <div className="title-div">
+                                        <div className="active-project-title"> Active Projects </div>
+                                        <div className="export-report"> <FontAwesomeIcon icon={faFileExport}/> Export Report </div>
+                                    </div>
+                                    <div className="dashboard-table">
+                                        <DashboardTable employees={employees} activeProjects={activeProjects}/>
+                                    </div>    
+                                </div>
+                                
+                            </Col>
+                            <Col lg={6}>
+                                
+                                <DashboardLocation/>
+                                
+                                
+                            </Col>
+                        </Row>
                     </Col>
                     
-
-
                 </Row>
+                
+                
                 
             </Container>
             

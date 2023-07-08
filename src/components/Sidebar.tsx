@@ -6,9 +6,6 @@ import { faAngleRight, faHouse, faUsers, faUsersRectangle,
     faEnvelope, faUserGear, faUser, faCalendarCheck, faDollarSign, faSignsPost
 } from '@fortawesome/free-solid-svg-icons'
 
-
-
-
 function Sidebar(): JSX.Element {
     const [isSuperAdminPanelDropdownOpen, setIsSuperAdminPanelDropdownOpen] = useState(false);
 
