@@ -1,0 +1,413 @@
+.latest-transaction{
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 10px;
+    font-weight: 500;
+    padding: 20px;
+    height: 580px;
+    overflow: auto;
+    margin-bottom: 20px;
+    .title{
+        display: flex;
+        align-items: center;
+        margin-top: 5px;
+        margin-bottom: 20px;
+    }
+    .sort{
+        margin-left: auto;
+    }
+    .title-name{
+        font-weight: 600;
+        font-size: 16px;
+    }
+    .table-container table {
+        width: 100%;
+    }
+
+    .table-title{
+        background-color: rgb(36, 36, 36);
+        color: white;
+      
+    }
+    td, th {
+    padding-bottom: 20px;
+    padding: 10px;
+    border-bottom: 1px solid grey;
+    }
+    th:nth-child(1), td:nth-child(1) {
+    width: 30%;
+    }
+
+    th:nth-child(2), td:nth-child(2) {
+    width: 20%;
+    }
+
+    th:nth-child(3), td:nth-child(3) {
+    width: 15%;
+    }
+
+    th:nth-child(4), td:nth-child(4) {
+    width: 15%;
+    }
+    th:nth-child(5), td:nth-child(5) {
+    width: 20%;
+    }
+
+    .source{
+        font-weight: 600;
+    }
+    .date{
+        color: grey;
+    }
+    .amount{
+        color: #0D99FF;
+    }
+    .Completed{
+        width: fit-content;
+        padding: 5px;
+        color: #3AC977;
+        background-color: #dbf2e5;
+        border-radius: 5px;
+    }
+    .Failed{
+        width: fit-content;
+        padding: 5px;
+        color: rgb(255, 82, 82);
+        background-color: #ffe3d8;
+        border-radius: 5px;
+    }
+
+
+    .choose-page{
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        background-color: black;
+        color: #F3723F;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+
+    .choose-page button{
+        padding: 5px;
+        padding-right: 10px;
+        padding-left: 10px;        
+    }
+    .active{
+        background-color: #F3723F;
+        color: white;
+    }
+
+    .normal-avatar{
+        position: relative;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        border: 1px solid darkblue;
+        margin-right: 10px;
+    }
+
+    #mySelect{
+        border-radius: 10px;
+        padding: 4px;
+        margin-left: 10px;
+        background-color: black;
+        color:#F3723F;
+    }
+}
+
+.user-log{
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 10px;
+    font-weight: 500;
+    padding: 20px;
+    overflow: auto;
+    .title{
+        display: flex;
+        align-items: center;
+        margin-top: 5px;
+        margin-bottom: 20px;
+    }
+    .sort{
+        margin-left: auto;
+    }
+    .title-name{
+        font-weight: 600;
+        font-size: 16px;
+    }
+    .table-container table {
+        width: 100%;
+    }
+    td,
+    th {
+    padding-bottom: 20px;
+    padding: 10px;
+    border-bottom: 1px solid grey;
+    }
+    th:nth-child(1), td:nth-child(1) {
+    width: 10%;
+    }
+
+    th:nth-child(2), td:nth-child(2) {
+    width: 12%;
+    }
+
+    th:nth-child(3), td:nth-child(3) {
+    width: 10%;
+    }
+
+    th:nth-child(4), td:nth-child(4) {
+    width: 12%;
+    }
+    th:nth-child(5), td:nth-child(5) {
+    width: 12%;
+    }
+    th:nth-child(6), td:nth-child(6) {
+    width: 15%;
+    }
+    th:nth-child(7), td:nth-child(7) {
+    width: 22%;
+    }
+    th:nth-child(8), td:nth-child(8) {
+    width: 7%;
+    }
+    
+    .source{
+        font-weight: 600;
+    }
+    .date{
+        color: grey;
+    }
+    .amount{
+        color: #0D99FF;
+    }
+    .Completed{
+        width: fit-content;
+        padding: 5px;
+        color: #3AC977;
+        background-color: #dbf2e5;
+        border-radius: 5px;
+    }
+    .Failed{
+        width: fit-content;
+        padding: 5px;
+        color: rgb(255, 82, 82);
+        background-color: #ffe3d8;
+        border-radius: 5px;
+    }
+
+
+    .choose-page{
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        background-color: black;
+        color: #F3723F;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+
+    .choose-page button{
+        padding: 5px;
+        padding-right: 10px;
+        padding-left: 10px;        
+    }
+    .active{
+        background-color: #F3723F;
+        color: white;
+    }
+
+    .normal-avatar{
+        position: relative;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        border: 1px solid darkblue;
+        margin-right: 10px;
+    }
+
+    #mySelect{
+        border-radius: 10px;
+        padding: 4px;
+        margin-left: 10px;
+        background-color: black;
+        color:#F3723F;
+    }
+}
+
+.system-status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    height: 580px;
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    .title-div{
+        width: 100%;
+        align-items: center;
+        text-align: left;
+        display: flex;
+    }
+    .title{
+        margin-left: 0;
+        font-weight: 600;
+    }
+    .selection{
+        margin-left: auto;
+    }
+  
+  .chart-div {
+    height: 300px;
+    width: 420px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Arbutus Slab', serif;
+    
+  }
+  
+  .chart-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .chart-label .title-number {
+    font-size: 30px;
+  }
+  
+  .chart {
+    width: 100%;
+    position: relative;
+    
+  }
+  
+  .chart canvas {
+    display: block;
+  }
+
+  .legend-div{
+    width: 80%;
+  }
+
+  .fa{
+    margin-right: 10px;
+  }
+}
+
+
+.calendar{
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid grey;
+    height: 580px;
+    font-family: 'Poppins', sans-serif;
+    .react-calendar {
+        width: 100%;
+        border: 0px;
+        border-bottom: 1px solid grey;
+    }
+
+    .title{
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .react-calendar__navigation button[aria-label="Previous"]::before,
+    .react-calendar__navigation button[aria-label="Next"]::before {
+    font-weight: bold;
+    font-size: 20px;
+    }
+
+    .react-calendar__month-view__weekdays__weekday {
+        background-color: black;
+        color: white;
+    }
+
+    .react-calendar__month-view__weekdays__weekday abbr[aria-label] {
+        text-decoration: none;
+      }
+
+    .react-calendar__navigation button.react-calendar__navigation__arrow {
+        border-radius: 10px;
+        background-color: rgb(13, 153, 255, 0.1);
+        color: #F3723F;
+    }
+
+    .react-calendar__year-view {
+    display: none;
+    }
+
+    .react-calendar__tile--now {
+        background: #F3723F;
+        border-radius: 10px;
+      }
+
+   .events{
+        overflow-y: auto;
+        max-height: 150px;
+        width: 100%;
+   }
+
+   .event{
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid grey;
+   }
+
+    .event-title{
+        font-weight: 600;
+        font-size: 18px;
+        margin-bottom: 20px;   
+    }
+   .date{
+        background-color: rgb(13, 153, 255, 0.1);
+        padding: 5px;
+        text-align: center;
+        margin: 5px;
+        border-radius: 10px;
+   }
+
+    .formattedDate{
+        font-weight: 600;
+        font-size: 20px;
+    }
+    .content{
+        width: 65%;
+        padding: 5px;
+    }
+
+   .grey{
+    color: rgb(141, 141, 141);
+   }
+   .task{
+    font-weight: 600;
+    font-size: 17px;
+    margin-bottom: 8px;
+   }
+   .time{
+    font-weight: 500;
+   }
+}

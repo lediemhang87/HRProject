@@ -101,8 +101,9 @@
     border: 1px solid grey;
     border-radius: 10px;
     font-weight: 500;
-    overflow: hidden;
-
+    height: 410px;
+    overflow: auto;
+    margin-bottom: 20px;
     .title-div{
         display: flex;
         align-items: center;
@@ -230,6 +231,7 @@
     font-family: 'Poppins', sans-serif;
     border-radius: 10px;
     width: 100%;
+    margin-bottom: 20px;
     .location-item{
         width: 100%;
         border-bottom: 1px solid grey;
