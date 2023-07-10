@@ -101,7 +101,7 @@ const Dashboard: React.FC = () => {
                 <Row>
                     {(!isPhoneMode  || isSidebarOpen) &&
                         <Col lg={2} >
-                            <Sidebar />
+                            <Sidebar activeItem="home"/>
                         </Col>
                         
                     }

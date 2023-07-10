@@ -2,21 +2,25 @@
     display: flex;
     align-items: center;
     background-color: white;
-    margin-bottom: 20px;
     .brand{
         display: flex;
         align-items: flex;
+        
     }
     .logo {
-    //   margin-left: 50px;
       height: 40px;
+      margin-left: 40px;
     }
-  
+
+   
+   
     .input {
       height: 30px;
+      width: 100%;
       border: 1px solid grey;
       border-radius: 10px;
       width: 300px;
+      margin-left: 30%;
 
     }
 
@@ -96,10 +100,6 @@
         margin-bottom: 10px;
         
     }
-    .active{
-        background-color: #F3723F;
-        color: white
-    }
 
     .logout{
         width: 100%;
@@ -124,17 +124,21 @@
       min-height: 40px;
       padding: 10px;
       background: white;
-      border-radius: 5px;
+      border-radius: 10px;
       margin-bottom: 10px;
+
     }
+
     .sidebar-dropdown-item:hover{
-      
       background: #F3723F;
       color: white;
       cursor: pointer;
     }
 
-
+    .active{
+      background-color: #F3723F;
+      color: white
+  }
     
   }
   
@@ -214,7 +218,8 @@
     font-weight: 400;
     display: flex;
   }
-  .button{
+  .job-chart-button{
+    align-items: center;
     background-color: rgb(50, 50, 50);
     color: white;
     display: flex;

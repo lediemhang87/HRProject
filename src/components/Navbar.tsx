@@ -31,6 +31,7 @@ function NavBar({ isPhoneMode, toggleSidebar }: NavBarProps): JSX.Element {
         <Navbar expand="lg" className='nav-bar'>
           <Container fluid>
 
+            
             <Navbar.Brand href="#">
               <div className='brand'>
                 {isPhoneMode && ( <FontAwesomeIcon className="icon" icon={faBars} onClick={toggleSidebar} />)}
@@ -44,12 +45,14 @@ function NavBar({ isPhoneMode, toggleSidebar }: NavBarProps): JSX.Element {
             <Navbar.Collapse id="navbarScroll">
 
               <Form className='nav-bar-search' >
-                <Form.Control
-                  type="search"
-                  placeholder="Search"
-                  className="input me-2 "
-                  aria-label="Search"
-                />
+                
+                  <Form.Control
+                    type="search"
+                    placeholder="Search"
+                    className="input me-2 "
+                    aria-label="Search"
+                  />
+          
               </Form>
 
               <Nav

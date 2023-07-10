@@ -12,11 +12,11 @@ const DashboardMixedChartDiv: React.FC = () => {
                             Job Chart
                         </div>
                         
-                        <div className='buttons ms-auto'> 
-                        <div className='button active'> Week </div>
-                        <div className='button'> Month </div>
-                        <div className='button'> Year </div>
-                        <div className='button'> All </div>
+                        <div className='buttons ms-auto font-size-12'> 
+                        <div className='job-chart-button active'> Week </div>
+                        <div className='job-chart-button'> Month </div>
+                        <div className='job-chart-button'> Year </div>
+                        <div className='job-chart-button'> All </div>
                     </div>
 
                     </div>
