@@ -46,7 +46,7 @@ const Signin: React.FC = () => {
                                     </div>
                                     
                                     <div className="sign-in-button">
-                                        <button className="button"> Sign in </button>
+                                        <Link to='/dashboard'> <button className="button"> Sign in </button> </Link>
                                         <p> Don't have an account? <span className="orange"> Register </span></p>
                                     </div>
                                     

@@ -110,7 +110,8 @@ const Dashboard: React.FC = () => {
                             <Col lg={9}>
                                 <DashboardRectangle/>
                                 <Row>
-                                    <Col lg={8}> <DashboardMixedChartDiv/> </Col> 
+                                    
+                                    <Col lg={8}> <DashboardMixedChartDiv/> </Col>  {/* Job Chart */}
                                     <Col lg={4}> <DashboardMyToDoItems/> </Col>
                                 </Row>
                             </Col>
