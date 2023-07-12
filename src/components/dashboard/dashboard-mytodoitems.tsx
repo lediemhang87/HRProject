@@ -18,7 +18,7 @@ type TodoItem = {
 const DashboardMyToDoItems: React.FC = () => {
   const initialTodoList: TodoItem[] = [
     { id: '0', title: 'Complete project Monday', date: '2023-12-26', time: '07:15:00', status: 'latest-to-do', isChecked: false},
-    { id: '1', title: 'Complete project Tuesday', date: '2023-12-27', time: '07:15:00', status: 'latest-finished',  isChecked: false},
+    { id: '1', title: 'Complete project Tuesday', date: '2023-12-27', time: '07:15:00', status: 'latest-finished',  isChecked: true},
     { id: '2', title: 'Complete project Wed', date: '2023-12-28', time: '07:15:00', 'status': '',  isChecked: false},
     { id: '3', title: 'Complete project Thursday', date: '2023-12-29', time: '07:15:00', 'status': '',  isChecked: false }
   ];
@@ -53,49 +53,50 @@ const DashboardMyToDoItems: React.FC = () => {
   };
 
   const handleCheck = (id: string) => {
-    // Find the index of the checked item
-    const checkedItemIndex = todoList.findIndex((todo) => todo.id === id);
-  
-    // Check if the item is already crossed out
-    if (todoList[checkedItemIndex].status === 'latest-finished') {
-      // Remove the status from the checked item
-      const updatedTodoList = todoList.map((todo) =>
-        todo.id === id ? { ...todo, isChecked: false, status: '' } : todo
-      );
-      setTodoList(updatedTodoList);
-    } else {
-      // Update the isChecked property of the todo item
-      const updatedTodoList = todoList.map((todo) =>
-        todo.id === id ? { ...todo, isChecked: !todo.isChecked } : todo
-      );
-  
-      // Find the index of the old 'latest-finished' item
-      const oldLatestFinishedIndex = updatedTodoList.findIndex(
-        (todo) => todo.status === 'latest-finished'
-      );
-  
-      // Create a copy of the updated todo list
-      const updatedTodoListWithStatus = [...updatedTodoList];
-  
-      // Remove the 'latest-finished' status from the old item if it exists
-      if (oldLatestFinishedIndex !== -1) {
-        updatedTodoListWithStatus[oldLatestFinishedIndex] = {
-          ...updatedTodoListWithStatus[oldLatestFinishedIndex],
-          status: '',
-        };
-      }
-  
-      // Set the status of the checked item to 'latest-finished'
-      updatedTodoListWithStatus[checkedItemIndex] = {
-        ...updatedTodoListWithStatus[checkedItemIndex],
-        status: 'latest-finished',
+  // Find the index of the checked item
+  const checkedItemIndex = todoList.findIndex((todo) => todo.id === id);
+
+  // Check if the item is already crossed out
+  if (todoList[checkedItemIndex].status === 'latest-finished') {
+    // Remove the status from the checked item
+    const updatedTodoList = todoList.map((todo) =>
+      todo.id === id ? { ...todo, isChecked: false, status: '' } : todo
+    );
+    setTodoList(updatedTodoList);
+  } else {
+    // Update the isChecked property of the todo item
+    const updatedTodoList = todoList.map((todo) =>
+      todo.id === id ? { ...todo, isChecked: !todo.isChecked } : todo
+    );
+
+    // Find the index of the old 'latest-finished' item
+    const oldLatestFinishedIndex = updatedTodoList.findIndex(
+      (todo) => todo.status === 'latest-finished'
+    );
+
+    // Create a copy of the updated todo list
+    const updatedTodoListWithStatus = [...updatedTodoList];
+
+    // Remove the 'latest-finished' status from the old item if it exists
+    if (oldLatestFinishedIndex !== -1) {
+      updatedTodoListWithStatus[oldLatestFinishedIndex] = {
+        ...updatedTodoListWithStatus[oldLatestFinishedIndex],
+        status: '',
       };
-  
-      // Update the todo list with the updated status
-      setTodoList(updatedTodoListWithStatus);
     }
-  };
-  
+
+    // Set the status of the checked item to 'latest-finished'
+    if (updatedTodoListWithStatus[checkedItemIndex].isChecked == true) {
+        updatedTodoListWithStatus[checkedItemIndex] = {
+            ...updatedTodoListWithStatus[checkedItemIndex],
+            status: 'latest-finished',
+          };
+    }
+    // Update the todo list with the updated status
+    setTodoList(updatedTodoListWithStatus);
+  }
+};
+
   
 
 const handleAddTodo = (e: React.FormEvent) => {
