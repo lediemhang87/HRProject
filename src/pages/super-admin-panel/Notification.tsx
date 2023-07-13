@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import NavBar from "../../components/Navbar"
 import Sidebar from "../../components/Sidebar";
 import { Container, Row, Col, Button } from "react-bootstrap";
-import SavedNotifTable from "../../components/notifications/saved-notif-table";
+import SavedNotifTable from "../../components/super-admin-panel/saved-notif-table";
 const SuperAdminNotification: React.FC = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [isPhoneMode, setIsPhoneMode] = useState(false);
@@ -56,42 +56,39 @@ const SuperAdminNotification: React.FC = () => {
                     <div className="poppins">
 
                     
-                        <div className="font-size-20 font-weight-600 margin-bottom-20"> Notifications  </div>
+                        <div className="text-xl fw-semibold mb-2"> Notifications  </div>
                         
-                        <div className="border background-white">
-                            <div className="border-bottom font-size-18 font-weight-600"> Set Notifications </div>
-                            <div>
+                        <div className="bg-white rounded border mb-8">
+                            <div className="fw-semibold border-bottom p-4 d-flex vertical-align "> Set Notifications </div>
+                            <div className="p-4">
                                 <Row>
                                     <Col lg={5}>
-                                        <div className="margin-top-20 margin-bottom-10 font-weight-500"> Select Page/Location to Display Notification* </div>
-                                        <select className='width-100 border'>
+                                        <div className=" mb-2 fw-semibold"> Select Page/Location to Display Notification* </div>
+                                        <select className='w-100 border'>
                                             <option> 1 </option>
                                             <option> 2 </option>
                                         </select>
                                     </Col>
                                     <Col lg={1}> </Col>
                                     <Col lg={5}>
-                                        <div className="margin-top-20 margin-bottom-10 font-weight-500"> Enter Notification Title* </div>
-                                        <select className='width-100 border'> 
-                                            <option> 1 </option>
-                                            <option> 2 </option>
-                                        </select>
+                                        <div className="mt-4 mb-2 fw-semibold"> Enter Notification Title* </div>
+                                        <input className="w-100 border p-2" placeholder="Notification title"/>
                                     </Col>
                                     <Col lg={1}> </Col>
                                 </Row>
                                 <Row>
                                     <Col lg={11}>
-                                        <div className="margin-top-20 margin-bottom-10 font-weight-500" > Type Message  </div>
-                                        <input className="border width-100" placeholder="Type message"/>
+                                        <div className="mt-4 mb-2 fw-semibold" > Type Message  </div>
+                                        <input className="w-100 border p-2" placeholder="Type message"/>
                                     </Col>
                                     <Col lg={1}> </Col>
                                     
                                 </Row>
                                 <Row>
-                                    <div className="d-flex text-align-center">
-                                        <div className="margin-top-20">
-                                            <button className="green-button button"> Save </button>
-                                            <button className="red-button button"> Cancel </button>
+                                    <div className="d-flex">
+                                        <div className="mt-4">
+                                            <button className="btn btn-success mr-5"> Save </button>
+                                            <button className="btn btn-danger"> Cancel </button>
                                         </div>
                                     </div>
                                     
@@ -100,7 +97,7 @@ const SuperAdminNotification: React.FC = () => {
 
                         </div>
 
-                        <div className="margin-top-50">
+                        <div className="mt-5">
                             <SavedNotifTable notifs={notifications}/>
                         </div>
                     </div>

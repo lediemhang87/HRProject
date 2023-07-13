@@ -10,15 +10,16 @@ const DashboardCalendar: React.FC = () => {
         {id: '3', date: '07/10/2023', time: '12:05', task: 'Development planning', location: 'In house'},
         {id: '4', date: '07/10/2023', time: '12:05', task: 'Development planning', location: 'In house'}
     ]
+
     return (
         <div className='calendar'>
             <div className='title'> Upcoming Schedule </div>
-            <Calendar prev2Label={null}
-                next2Label={null}/>
+
+            <Calendar prev2Label={null} next2Label={null}/>
+
             <div className='event-title'> EVENTS </div>
 
             <div className='events'>
-                
                 {schedules.map((schedule) => {
                     const date = new Date(schedule.date);
                     const formattedDate = date.toLocaleDateString(undefined, { day: 'numeric' });
@@ -39,8 +40,8 @@ const DashboardCalendar: React.FC = () => {
                         </div>
                     );
                 })}
-
             </div>
+            
         </div>
     );
 };

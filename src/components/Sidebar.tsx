@@ -12,14 +12,18 @@ interface SidebarProps {
   }
   
 function Sidebar({ activeItem, }: SidebarProps): JSX.Element {
-    const [isSuperAdminPanelDropdownOpen, setIsSuperAdminPanelDropdownOpen] = useState(false);
+    
+
+    
+
+    const activeSuperAdminPanel = (activeItem == 'superAdminPanel') || (activeItem == 'manageCustomer') || (activeItem == 'accountManager')
+                                || (activeItem == 'accountManagerRoles') || (activeItem == 'websitePricing') || (activeItem == 'paymentGateway');
+
+    const [isSuperAdminPanelDropdownOpen, setIsSuperAdminPanelDropdownOpen] = useState(activeSuperAdminPanel);
 
     const toggleDropdownSuperAdminPanel = () => {
         setIsSuperAdminPanelDropdownOpen(!isSuperAdminPanelDropdownOpen);
     };
-
-    const activeSuperAdminPanel = (activeItem == 'superAdminPanel') || (activeItem == 'manageCustomer');
-
     return(
         <div className="sidebar">
             <ul className="sidebar-nav">
@@ -55,14 +59,30 @@ function Sidebar({ activeItem, }: SidebarProps): JSX.Element {
                                 Manage Customers 
                             </div>
                         </a>
-
-                        <div className='sidebar-dropdown-item'> 
-                            <FontAwesomeIcon className='icon' icon={faUserGear} /> 
-                            Account Managers 
-                        </div>
-                        <div className='sidebar-dropdown-item'> <FontAwesomeIcon className='icon' icon={faCalendarCheck} /> Account Manager Roles </div>
-                        <div className='sidebar-dropdown-item'> <FontAwesomeIcon className='icon' icon={faDollarSign} /> Set Website Procing </div>
-                        <div className='sidebar-dropdown-item'> <FontAwesomeIcon className='icon' icon={faSignsPost} /> Set Payment Gateway </div>
+                        <a href="/superadminpanel/account-manager" className="sidebar-link">
+                            <div className={`sidebar-dropdown-item ${activeItem === 'accountManager' ? 'active' : ''}`}> 
+                                <FontAwesomeIcon className='icon' icon={faUserGear} /> 
+                                Account Managers 
+                            </div>
+                        </a>
+                        <a href="/superadminpanel/account-manage-roles" className="sidebar-link">
+                            <div className={`sidebar-dropdown-item ${activeItem === 'accountManagerRoles' ? 'active' : ''}`}> 
+                                <FontAwesomeIcon className='icon' icon={faCalendarCheck} /> 
+                                Account Manager Roles 
+                            </div>
+                        </a>
+                        <a href="/superadminpanel/website-pricing" className="sidebar-link">
+                            <div className={`sidebar-dropdown-item ${activeItem === 'websitePricing' ? 'active' : ''}`} > 
+                                <FontAwesomeIcon className='icon' icon={faDollarSign} /> 
+                                Set Website Pricing 
+                            </div>
+                        </a>
+                        
+                        <a href="/superadminpanel/payment-gateway" className="sidebar-link">
+                            <div className={`sidebar-dropdown-item ${activeItem === 'paymentGateway' ? 'active' : ''}`}> <FontAwesomeIcon className='icon' icon={faSignsPost} /> 
+                                Set Payment Gateway 
+                            </div>
+                        </a>
                     </div>
                 )}
                 <li className="sidebar-item">

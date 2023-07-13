@@ -3,147 +3,39 @@
 }
 
 .default-background-color{
-    background-color: #fdf7f4;
     padding-top: 20px;
-}
-
-.background-white{
-    background-color: white;
-}
-.background-black{
-    background-color: black;
-    color: white;
-}
-.background-pink{
-    background-color: #FFE7E7;
+    background-color: #fdf7f4;
 }
 
 
+.background-darkblue {
+    background-color: #0D75BC;
+}
+
+.background-green{
+    background-color: #0AAA7D;
+}
+
+.background-orange{
+    background-color: #F3723F;
+}
 .vertical-align{
     display: flex;
     align-items: center;
 }
 
-$font-sizes: (
-  10: 10px,
-  12: 12px,
-  14: 14px,
-  16: 16px,
-  18: 18px,
-  20: 20px,
-);
-
-@each $size, $value in $font-sizes {
-  .font-size-#{$size} {
-    font-size: $value;
-  }
+.height-50{
+    height: 50px;
 }
-
-$font-weights: (
-  100: 100,
-  200: 200,
-  300: 300,
-  400: 400,
-  500: 500,
-  600: 600,
-  700: 700,
-  800: 800,
-  900: 900,
-);
-
-@each $weight, $value in $font-weights {
-  .font-weight-#{$weight} {
-    font-weight: $value;
-  }
+.height-30{
+    height: 30px;
 }
-
-.border-bottom{
-    padding-bottom: 5px;
-    border-bottom: 1px solid rgb(20, 20, 20);
-}
-
-.border{
-    border: 2px solid rgb(20, 20, 20);
-    padding: 20px;
-    border-radius: 10px;
-}
-
-$size-variables: (
-  10: 10px,
-  15: 15px,
-  20: 20px,
-  30: 30px,
-  40: 40px,
-  50: 50px,
-);
-
-@each $size, $value in $size-variables{
-  .margin-bottom-#{$size} {
-    margin-bottom: $value;
-  }
-}
-
-@each $size, $value in $size-variables{
-    .margin-top-#{$size} {
-      margin-top: $value;
-    }
-  }
-
-@each $size, $value in $size-variables{
-.margin-right-#{$size} {
-    margin-right: $value;
-}
-}
-
-@each $size, $value in $size-variables{
-    .margin-left-#{$size} {
-    margin-left: $value;
-    }
-}
-
-
-@each $size, $value in $size-variables {
-    .padding-#{$size} {
-        padding: $value;
-    }
-  }
-  
-@each $size, $value in $size-variables{
-.border-radius-#{$size} {
-    border-radius: $value;
-}
-}
-.width-100{
-    width: 100%;
-}
-.width-50{
-    width: 50%;
+.height-80{
+    height: 80px;
 }
 .height-100{
-    height: 100%;
+    height: 100px;
 }
-.green-button{
-    background-color: green;
-    color: white;
-    
-    
-}
-.red-button{
-    background-color: red;
-    color: white;
-}
-.button{
-    border-radius: 10px;
-    padding: 10px;
-    width: 150px;
-    margin-right: 10px;
-}
-.text-align-center{
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 
 
 .choose-page{
@@ -167,15 +59,9 @@ $size-variables: (
 
 .grid-table {
     border-collapse: collapse;
-  
     th,
     td {
         border: 1px solid rgb(172, 172, 172);
         padding: 10px;
     }
 }
-
-.red{
-    color: red;
-}
-

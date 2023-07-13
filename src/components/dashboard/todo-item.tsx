@@ -87,9 +87,9 @@ const SortableItem: React.FC<SortableItemProps> = ({ todo, index, onDelete, onUp
         )}
         {editMode ? (
           <>
-            <input className='border width-100 margin-bottom-10' type='text' name='title' value={editedTodo.title} onChange={handleInputChange} />
-            <input className='border width-50 margin-bottom-10 ' type='date' name='date' value={editedTodo.date} onChange={handleInputChange} />
-            <input className='border width-50 margin-bottom-10' type='time' name='time' value={editedTodo.time} onChange={handleInputChange} />
+            <input className='border w-100 margin-bottom-10' type='text' name='title' value={editedTodo.title} onChange={handleInputChange} />
+            <input className='border w-50 margin-bottom-10 ' type='date' name='date' value={editedTodo.date} onChange={handleInputChange} />
+            <input className='border w-50 margin-bottom-10' type='time' name='time' value={editedTodo.time} onChange={handleInputChange} />
             <button className='green-button padding-10 margin-right-10 border-radius-10' onClick={handleSave}>
               Save
             </button>
@@ -101,15 +101,21 @@ const SortableItem: React.FC<SortableItemProps> = ({ todo, index, onDelete, onUp
           <>
             <div className='title-div'>
               <FontAwesomeIcon className='icon ' icon={faGripVertical} {...attributes} {...listeners} />
+
               <input className='checkbox' type='checkbox' checked={todo.isChecked} onChange={handleCheckboxChange} />
-              <div className={`title ${todo.isChecked ? 'crossed' : ''}`}>{editedTodo.title}</div>
+
+              <div className={`title ${todo.isChecked ? 'crossed' : ''}`}>
+                {todo.title}
+              </div>
+
               <div className='icons '>
                 <FontAwesomeIcon className='icon red' icon={faTrash} onClick={handleDelete} />
                 <FontAwesomeIcon className='icon blue' icon={faPen} onClick={handleEdit} />
               </div>
             </div>
+            
             <div className='date-and-time'>
-              {editedTodo.date} {editedTodo.time}
+              {todo.date} {todo.time}
             </div>
           </>
         )}

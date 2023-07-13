@@ -10,6 +10,27 @@ import UK from '../../assets/dashboard/countries/UK.png'
 import UnitedStates from '../../assets/dashboard/countries/UnitedStates.png'
 import Sample from '../../assets/dashboard/countries/UnitedStates.png'
 
+const getCountryImage = (country: string) => {
+  switch (country) {
+    case 'India':
+      return India;
+    case 'Canada':
+      return Canada;
+    case 'Russia':
+      return Russian;
+    case 'United Kingdom':
+      return UK;
+    case 'Australia':
+      return Australia;
+    case 'United States':
+      return UnitedStates;
+    case 'Pakistan':
+      return Pakistan;
+    default:
+      return Sample;
+  }
+};
+
 
 const DashboardLocation: React.FC = () => {
     const usersByLocation = [
@@ -50,25 +71,5 @@ const DashboardLocation: React.FC = () => {
     );
   };
   
-  const getCountryImage = (country: string) => {
-    switch (country) {
-      case 'India':
-        return India;
-      case 'Canada':
-        return Canada;
-      case 'Russia':
-        return Russian;
-      case 'United Kingdom':
-        return UK;
-      case 'Australia':
-        return Australia;
-      case 'United States':
-        return UnitedStates;
-      case 'Pakistan':
-        return Pakistan;
-      default:
-        return Sample;
-    }
-  };
   
   export default DashboardLocation;

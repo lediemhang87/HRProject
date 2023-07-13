@@ -53,31 +53,24 @@ const DashboardMyToDoItems: React.FC = () => {
   };
 
   const handleCheck = (id: string) => {
-  // Find the index of the checked item
   const checkedItemIndex = todoList.findIndex((todo) => todo.id === id);
 
-  // Check if the item is already crossed out
   if (todoList[checkedItemIndex].status === 'latest-finished') {
-    // Remove the status from the checked item
     const updatedTodoList = todoList.map((todo) =>
       todo.id === id ? { ...todo, isChecked: false, status: '' } : todo
     );
     setTodoList(updatedTodoList);
   } else {
-    // Update the isChecked property of the todo item
     const updatedTodoList = todoList.map((todo) =>
       todo.id === id ? { ...todo, isChecked: !todo.isChecked } : todo
     );
 
-    // Find the index of the old 'latest-finished' item
     const oldLatestFinishedIndex = updatedTodoList.findIndex(
       (todo) => todo.status === 'latest-finished'
     );
 
-    // Create a copy of the updated todo list
     const updatedTodoListWithStatus = [...updatedTodoList];
 
-    // Remove the 'latest-finished' status from the old item if it exists
     if (oldLatestFinishedIndex !== -1) {
       updatedTodoListWithStatus[oldLatestFinishedIndex] = {
         ...updatedTodoListWithStatus[oldLatestFinishedIndex],
@@ -85,14 +78,12 @@ const DashboardMyToDoItems: React.FC = () => {
       };
     }
 
-    // Set the status of the checked item to 'latest-finished'
     if (updatedTodoListWithStatus[checkedItemIndex].isChecked == true) {
         updatedTodoListWithStatus[checkedItemIndex] = {
             ...updatedTodoListWithStatus[checkedItemIndex],
             status: 'latest-finished',
           };
     }
-    // Update the todo list with the updated status
     setTodoList(updatedTodoListWithStatus);
   }
 };
@@ -102,7 +93,6 @@ const DashboardMyToDoItems: React.FC = () => {
 const handleAddTodo = (e: React.FormEvent) => {
   e.preventDefault();
   if (newTodo.title && newTodo.date && newTodo.time) {
-    // Remove the 'latest-to-do' status from the old item if it exists
     const updatedTodoList = todoList.map((todo) => {
       if (todo.status == 'latest-to-do') {
         return {
@@ -118,7 +108,6 @@ const handleAddTodo = (e: React.FormEvent) => {
     const updatedNewTodo = { ...newTodo, status: 'latest-to-do', id: newId };
     updatedTodoList.unshift(updatedNewTodo);
 
-    // Update the todo list
     setTodoList(updatedTodoList);
 
     setNewTodo(updatedNewTodo);
@@ -164,12 +153,13 @@ const handleAddTodo = (e: React.FormEvent) => {
       )}
 
       <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+
         <SortableContext items={todoList} strategy={verticalListSortingStrategy}>
           {todoList.map((todo, index) => (
             <SortableItem key={todo.id} todo={todo} index={index} onDelete={handleDeleteTodo} onUpdateTodo={handleUpdateTodo} onCheck={handleCheck}/>
-
           ))}
         </SortableContext>
+        
       </DndContext>
     </div>
   );

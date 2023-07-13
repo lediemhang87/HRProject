@@ -2,7 +2,7 @@ import SliderBlue from '../../assets/dashboard/sliders/slider-blue.png'
 import SliderDarkBlue from '../../assets/dashboard/sliders/slider-darkblue.png'
 import SliderRed from '../../assets/dashboard/sliders/slider-red.png'
 import SliderGreen from '../../assets/dashboard/sliders/slider-green.png'
-import MixedChart from './dashboard-mixchart'
+import MixedChart from './mixchart-component'
 import { Container, Row, Col } from "react-bootstrap"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDollarSign, faBuilding, faUser, faStore } from '@fortawesome/free-solid-svg-icons'
@@ -21,8 +21,6 @@ const DashboardRectangle: React.FC = () => {
                         
                         <FontAwesomeIcon className='icon-right green' icon={faDollarSign}/>
                     </div>
-                    
-
                     <img className='slider-img' src={SliderGreen}/>
                 </div>
             </Col>

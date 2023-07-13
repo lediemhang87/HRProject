@@ -3,12 +3,11 @@ import Navbar from "../../components/Navbar"
 import Sidebar from "../../components/Sidebar"
 import { Container, Row, Col } from "react-bootstrap"
 import DashboardRectangle from "../../components/dashboard/dashboard-rectangle"
-import DashboardMixedChartDiv from "../../components/dashboard/dashboard-mixedchart-div"
+import DashboardMixedChartDiv from "../../components/dashboard/dashboard-mixedchart"
 import DashboardMyToDoItems from "../../components/dashboard/dashboard-mytodoitems"
 import DashboardTotalRevenue from "../../components/dashboard/dashboard-totalrevenue"
-import DashboardTable from "../../components/dashboard/dashboard-table"
+import DashboardTable from "../../components/dashboard/dashboard-activeProject"
 import DashboardLocation from "../../components/dashboard/dashboard-location"
-import './dashboard-style.scss'
 import DashboardLatestTransaction from "../../components/dashboard/dashboard-latest-transaction"
 import DashboardUserLog from "../../components/dashboard/dashboard-userLog"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -95,7 +94,7 @@ const Dashboard: React.FC = () => {
     }, []);
 
     return(
-        <div className="dashboard">
+        <div className="dashboard default-background-color">
             <Navbar isPhoneMode={isPhoneMode} toggleSidebar={toggleSidebar}/>
             <Container fluid>
                 <Row>
@@ -110,13 +109,15 @@ const Dashboard: React.FC = () => {
                             <Col lg={9}>
                                 <DashboardRectangle/>
                                 <Row>
-                                    
                                     <Col lg={8}> <DashboardMixedChartDiv/> </Col>  {/* Job Chart */}
                                     <Col lg={4}> <DashboardMyToDoItems/> </Col>
                                 </Row>
                             </Col>
-                            <Col lg={3}> <DashboardTotalRevenue/> </Col>
+                            <Col lg={3}> 
+                                <DashboardTotalRevenue/> 
+                            </Col>
                         </Row>
+
                         <Row >
                             <Col lg={6}>
                                 <div className="active-projects">
@@ -128,7 +129,6 @@ const Dashboard: React.FC = () => {
                                         <DashboardTable employees={employees} activeProjects={activeProjects}/>
                                     </div>    
                                 </div>
-                                
                             </Col>
                             <Col lg={6}>
                                 <DashboardLocation />
@@ -136,39 +136,28 @@ const Dashboard: React.FC = () => {
                         </Row>
                         <Row>
                             <Col lg={5}>
-                                
                                 <DashboardLatestTransaction transactions={latestTransaction} />
-                                   
-                                    
-                                
                             </Col>
+
                             <Col lg={3}>
-                            <DashboardSystemStatus status={status}/>
+                                <DashboardSystemStatus status={status}/>
                             </Col>
+
                             <Col lg={4}> 
                                 <DashboardCalendar/>
                             </Col>
                         </Row>
+
                         <Row>
                             <Col>
-                                
                                 <DashboardUserLog logs={userLogs}/>
-                                
-                                
                             </Col>
-                            
                         </Row>
+
                     </Col>
                     
                 </Row>
-                
-                
-                
             </Container>
-            
-            
-            
-
         </div>
     )
 }

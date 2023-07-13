@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import MixedChart from './dashboard-mixchart'
-import { Container, Row, Col } from "react-bootstrap"
+import MixedChart from './mixchart-component'
 import '../styles.scss'
 const DashboardMixedChartDiv: React.FC = () => {
     

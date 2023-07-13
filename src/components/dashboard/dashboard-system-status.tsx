@@ -117,11 +117,6 @@ const DoughnutChartComponent: React.FC<DoughnutChartProps> = ({ status }) => {
                     </Col>
                     <Col lg={4}> {status.apiCalls} hrs</Col>
                 </Row>
-                
-
-            {/* <div> <FontAwesomeIcon icon={faSquare} /> Total Downtime </div>
-            <div> <FontAwesomeIcon icon={faSquare} /> Server Downtime </div>
-            <div> <FontAwesomeIcon icon={faSquare} /> API Calls </div> */}
             </div>
         </div>
     </div>
