@@ -5,17 +5,9 @@ import { Container, Row, Col } from "react-bootstrap";
 import ManageCustomerAllCustomerTable from "../../components/super-admin-panel/manage-customers-all-customer-table";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUsers, faDollarSign, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
+import customerDetail from '../../data/customerDetail.json'
 const SuperAdminManageCustomer: React.FC = () => {
-    const customers = [
-        {sn: 1, companyName: 'Gladpay Inc', balance: 100000, dateCreated: '12/03/2020', lastLogin: '12/03/2020', currentPackage: 'Essential', fundOrDebit: 'fund-or-debit'},
-        {sn: 2, companyName: 'adazbio', balance: 100000, dateCreated: '12/03/2020', lastLogin: '12/03/2020', currentPackage: 'Perform', fundOrDebit: 'fund-or-debit'},
-        {sn: 3, companyName: 'showsmani', balance: 100000, dateCreated: '12/03/2020', lastLogin: '12/03/2020', currentPackage: 'Perform', fundOrDebit: 'fund-or-debit'},
-        {sn: 4, companyName: 'letzo', balance: 100000, dateCreated: '12/03/2020', lastLogin: '12/03/2020', currentPackage: 'Boost', fundOrDebit: 'fund-or-debit'},
-        {sn: 5, companyName: 'seyinbez', balance: 100000, dateCreated: '12/03/2020', lastLogin: '12/03/2020', currentPackage: 'Perform', fundOrDebit: 'fund-or-debit'},
-        {sn: 6, companyName: 'adazbio', balance: 100000, dateCreated: '12/03/2020', lastLogin: '12/03/2020', currentPackage: 'Perform', fundOrDebit: 'fund-or-debit'},
-        {sn: 7, companyName: 'showsmani', balance: 100000, dateCreated: '12/03/2020', lastLogin: '12/03/2020', currentPackage: 'Perform', fundOrDebit: 'fund-or-debit'},
-        {sn: 8, companyName: 'letzo', balance: 100000, dateCreated: '12/03/2020', lastLogin: '12/03/2020', currentPackage: 'Boost', fundOrDebit: 'fund-or-debit'}
-    ]
+    const customers = customerDetail;
 
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [isPhoneMode, setIsPhoneMode] = useState(false);

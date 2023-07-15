@@ -87,15 +87,13 @@ const SortableItem: React.FC<SortableItemProps> = ({ todo, index, onDelete, onUp
         )}
         {editMode ? (
           <>
-            <input className='border w-100 margin-bottom-10' type='text' name='title' value={editedTodo.title} onChange={handleInputChange} />
-            <input className='border w-50 margin-bottom-10 ' type='date' name='date' value={editedTodo.date} onChange={handleInputChange} />
-            <input className='border w-50 margin-bottom-10' type='time' name='time' value={editedTodo.time} onChange={handleInputChange} />
-            <button className='green-button padding-10 margin-right-10 border-radius-10' onClick={handleSave}>
-              Save
-            </button>
-            <button className='red-button padding-10  border-radius-10 ' onClick={handleCancel}>
-              Cancel
-            </button>
+            <div> Title </div>
+            <input className='border w-100 ' type='text' name='title' value={editedTodo.title} onChange={handleInputChange} />
+            <div> Date and time </div>
+            <input className='border w-50 mb-2' type='date' name='date' value={editedTodo.date} onChange={handleInputChange} />
+            <input className='border w-50 mb-2' type='time' name='time' value={editedTodo.time} onChange={handleInputChange} />
+            <button className='btn btn-success mr-2' onClick={handleSave}> Save </button>
+            <button className='btn btn-danger ' onClick={handleCancel}> Cancel </button>
           </>
         ) : (
           <>

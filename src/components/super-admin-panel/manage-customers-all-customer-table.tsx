@@ -11,6 +11,19 @@ interface Customer {
     lastLogin: string,
     currentPackage: string,
     fundOrDebit: string,
+    customerID: string, 
+    firstName: string, 
+    lastName: string,
+    companySub: string,
+    email: string,
+    phoneNumber: string,
+    noOfEmployee: number,
+    accountStatus: string,
+    nextBilling: string,
+    naira: number,
+    usd: number,
+    gbp: number,
+    virtualAccountNo: string,
 }
 
 interface AllCustomerProps {
@@ -24,7 +37,7 @@ const ManageCustomerAllCustomerTable: React.FC<AllCustomerProps> = ({customers})
     const navigate = useNavigate();
 
     const handleRowClick = (customer: Customer) => {
-        const url = `/superadminpanel/manage-customer/${String(customer.companyName)}`;
+        const url = `/superadminpanel/manage-customer/${String(customer.customerID)}`;
         navigate(url);
       };
     const handlePageClick = (pageIndex: number) => {
@@ -154,7 +167,7 @@ const ManageCustomerAllCustomerTable: React.FC<AllCustomerProps> = ({customers})
                     </thead>
                     <tbody >
                         {visibleCustomers.map((customer, index) => (
-                            <tr key={index} onClick={() => handleRowClick(customer)}>
+                            <tr key={index} onClick={() => handleRowClick(customer)} className="cursor-pointer">
                                 <td className="align-middle text-center"> {customer.sn} </td>
                                 <td className="align-middle"> {customer.companyName} </td>
                                 <td className="align-middle"> {customer.balance} </td>

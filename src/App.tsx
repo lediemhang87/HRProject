@@ -13,6 +13,7 @@ import SuperAdminAccountManagers from './pages/super-admin-panel/AccountManagers
 import SuperAdminAccountManagerRoles from './pages/super-admin-panel/AccountManagerRoles';
 import SuperAdminSetWebsitePricing from './pages/super-admin-panel/SetWebsitePricing';
 import SuperAdminSetPaymentGateway from './pages/super-admin-panel/SetPaymentGateway';
+import CustomerDetailsPage from './pages/super-admin-panel/CustomerDetailPage';
 
 const App = () => {
   useEffect(() => {
@@ -33,6 +34,7 @@ const App = () => {
           <Route path="/superadminpanel/account-manage-roles" element={<SuperAdminAccountManagerRoles/>} />
           <Route path="/superadminpanel/website-pricing" element={<SuperAdminSetWebsitePricing/>} />
           <Route path="/superadminpanel/payment-gateway" element={<SuperAdminSetPaymentGateway/>} />
+          <Route path="/superadminpanel/manage-customer/:customerID" element={<CustomerDetailsPage/>} />
           
       </Routes>
     </div>

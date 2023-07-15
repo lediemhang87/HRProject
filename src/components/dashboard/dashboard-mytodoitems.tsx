@@ -1,4 +1,5 @@
 import '../styles2.scss';
+
 import { DndContext, closestCenter, DragEndEvent } from '@dnd-kit/core';
 import { arrayMove, SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import { useState } from 'react';
@@ -23,7 +24,7 @@ const DashboardMyToDoItems: React.FC = () => {
     { id: '3', title: 'Complete project Thursday', date: '2023-12-29', time: '07:15:00', 'status': '',  isChecked: false }
   ];
 
-  const [todoList, setTodoList] = useState(initialTodoList);
+  const [todoList, setTodoList] = useState(initialTodoList);  
   const [showAddForm, setShowAddForm] = useState(false);
   const [newTodo, setNewTodo] = useState<TodoItem>({ id: '0', title: 'Complete project Monday', date: '2023-12-26', time: '07:15:00', status: '',  isChecked: false});
 
@@ -119,7 +120,12 @@ const handleAddTodo = (e: React.FormEvent) => {
     setNewTodo({ id: '', title: '', date: '', time: '', status: 'latest-to-do', isChecked: false });
     setShowAddForm(false);
   };
-
+  const handleClickOutside = (event: React.MouseEvent<HTMLDivElement>) => {
+    const popupElement = document.getElementById('popup');
+    if (popupElement && !popupElement.contains(event.target as Node)) {
+      setShowAddForm(false);
+    }
+  };
   const handleUpdateTodo = (updatedTodo: TodoItem) => {
     setTodoList((prevTodoList) => {
       const updatedTodoList = prevTodoList.map((todo) => {
@@ -143,13 +149,22 @@ const handleAddTodo = (e: React.FormEvent) => {
       </div>
 
       {showAddForm && (
-        <form onSubmit={handleAddTodo}>
-          <input type='text' name='title' placeholder='Title' value={newTodo.title} onChange={handleInputChange} required />
-          <input type='date' name='date' value={newTodo.date} onChange={handleInputChange} required />
-          <input type='time' name='time' value={newTodo.time} onChange={handleInputChange} required />
-          <button type='submit'>Add To Do</button>
-          <button type='button' onClick={handleCancelAdd}>Cancel</button>
-        </form>
+        <div className='pop-up'>
+          <div className='bg-body border p-4 rounded'>
+            <div className='text-xl fw-semibold mb-4'> Add to-do-list </div>
+            <form onSubmit={handleAddTodo}>
+              <div className='text-lg mb-2'> Title </div>
+              <input className='w-100 border text-lg mb-4' type='text' name='title' placeholder='Title' value={newTodo.title} onChange={handleInputChange} required /> <br/>
+              <div className='text-lg mb-2'> Date and time</div>
+              <input className='w-50 border text-lg' type='date' name='date' value={newTodo.date} onChange={handleInputChange} required />
+              <input className='w-50 border text-lg mb-4'type='time' name='time' value={newTodo.time} onChange={handleInputChange} required />
+                <button className='btn btn-success bg-success mr-4'type='submit'>Add To Do</button>
+                <button className='btn btn-danger bg-danger' type='button' onClick={handleCancelAdd}>Cancel</button>
+              
+            </form>
+          </div>
+        </div>
+        
       )}
 
       <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
