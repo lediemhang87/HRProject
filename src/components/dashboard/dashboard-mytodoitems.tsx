@@ -43,8 +43,6 @@ const DashboardMyToDoItems: React.FC = () => {
     setTodoList((prevTodoList) => prevTodoList.filter((todo) => todo.id !== id));
   };
 
-  
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setNewTodo((prevTodo) => ({
