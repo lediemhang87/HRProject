@@ -12,10 +12,6 @@ interface SidebarProps {
   }
   
 function Sidebar({ activeItem, }: SidebarProps): JSX.Element {
-    
-
-    
-
     const activeSuperAdminPanel = (activeItem == 'superAdminPanel') || (activeItem == 'manageCustomer') || (activeItem == 'accountManager')
                                 || (activeItem == 'accountManagerRoles') || (activeItem == 'websitePricing') || (activeItem == 'paymentGateway');
 
@@ -24,18 +20,19 @@ function Sidebar({ activeItem, }: SidebarProps): JSX.Element {
     const toggleDropdownSuperAdminPanel = () => {
         setIsSuperAdminPanelDropdownOpen(!isSuperAdminPanelDropdownOpen);
     };
+    
     return(
         <div className="sidebar">
             <ul className="sidebar-nav">
                 <li className={`sidebar-item ${activeItem === 'home' ? 'active' : ''}`}>
                     
                     <a href="/dashboard" className="sidebar-link ">
-                        <div className={`font-awesome-icon `}> <FontAwesomeIcon className='icon ' icon={faHouse} /> Home </div>
+                        <div className={`sidebar-item-content `}> <FontAwesomeIcon className='icon ' icon={faHouse} /> Home </div>
                     </a>
                 </li>
                 <li className={`sidebar-item ${isSuperAdminPanelDropdownOpen || activeSuperAdminPanel ? 'active' : ''}`}>
                     <a href="#" className="sidebar-link">
-                        <div className='font-awesome-icon' onClick={toggleDropdownSuperAdminPanel}>
+                        <div className='sidebar-item-content' onClick={toggleDropdownSuperAdminPanel}>
                                 <FontAwesomeIcon className='icon' icon={faUsersRectangle} /> 
                                 Super Admin Panel 
                                 <FontAwesomeIcon className='icon right-arrow' icon={faAngleRight}/>     
@@ -87,19 +84,19 @@ function Sidebar({ activeItem, }: SidebarProps): JSX.Element {
                 )}
                 <li className="sidebar-item">
                     <a href="#" className="sidebar-link">
-                        <div className='font-awesome-icon'> <FontAwesomeIcon className='icon' icon={faCalendarDays} /> Payroll Report </div>
+                        <div className='sidebar-item-content'> <FontAwesomeIcon className='icon' icon={faCalendarDays} /> Payroll Report </div>
                         
                     </a>
                 </li>
                 <li className="sidebar-item">
                     <a href="#" className="sidebar-link">
-                        <div className='font-awesome-icon'> <FontAwesomeIcon className='icon' icon={faBusinessTime} /> Sales Report </div>
+                        <div className='sidebar-item-content'> <FontAwesomeIcon className='icon' icon={faBusinessTime} /> Sales Report </div>
 
                     </a>
                 </li>
                 <li className="sidebar-item">
                     <a href="#" className="sidebar-link">
-                        <div className='font-awesome-icon'> 
+                        <div className='sidebar-item-content'> 
                             <FontAwesomeIcon className='icon' icon={faUsers} /> 
                             Teams
                             <FontAwesomeIcon className='icon right-arrow' icon={faAngleRight}/> 
@@ -109,19 +106,19 @@ function Sidebar({ activeItem, }: SidebarProps): JSX.Element {
                 </li>
                 <li className="sidebar-item">
                     <a href="#" className="sidebar-link">
-                        <div className='font-awesome-icon'> <FontAwesomeIcon className='icon' icon={faPhoneVolume} /> Contact Messsages </div>
+                        <div className='sidebar-item-content'> <FontAwesomeIcon className='icon' icon={faPhoneVolume} /> Contact Messsages </div>
                     </a>
                 </li>
                 <li className="sidebar-item">
                     <a href="#" className="sidebar-link">
-                        <div className='font-awesome-icon'> <FontAwesomeIcon className='icon' icon={faGear} /> Settings </div>
+                        <div className='sidebar-item-content'> <FontAwesomeIcon className='icon' icon={faGear} /> Settings </div>
                         
                     </a>
                 </li>
                
                 <li className="logout-sidebar-item  ">
                     <a href="#" className="sidebar-link">
-                        <div className='font-awesome-icon logout '> <FontAwesomeIcon className='icon' icon={faRightFromBracket} /> Logout </div>
+                        <div className='sidebar-item-content logout '> <FontAwesomeIcon className='icon' icon={faRightFromBracket} /> Logout </div>
                     </a>
                 </li>
             </ul>

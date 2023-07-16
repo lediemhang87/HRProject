@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import ProgressBar from '../progressbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faAngleRight, faFileExport } from '@fortawesome/free-solid-svg-icons';
+
+
 interface Employee {
   id: number;
   name: string;
@@ -52,6 +54,7 @@ const ActiveProjectsTable: React.FC<ActiveProjectsTableProps> = ({ employees, ac
       setSortColumn(column);
       setSortOrder('asc');
     }
+    setStartIndex(0)
   };
 
   const getEmployeeName = (position: number): string => {
@@ -91,13 +94,68 @@ const ActiveProjectsTable: React.FC<ActiveProjectsTableProps> = ({ employees, ac
     return 0;
   });
 
+  
+  
+
   const totalPages = Math.ceil(sortedProjects.length / itemsPerPage);
   const currentPage = Math.floor(startIndex / itemsPerPage) + 1;
   const visibleProjects = sortedProjects.slice(startIndex, startIndex + itemsPerPage);
 
+  const exportReport = () => {
+    const tableRows = activeProjects.map((project, index) => {
+      const assigneeNames = project.assignee.map((assigneeId) => getEmployeeName(assigneeId));
+      return (
+        `<tr key=${index}>
+          <td>${project.projectName}</td>
+          <td>${getEmployeeName(project.projectLead)}</td>
+          <td>${project.process}</td>
+          <td>${assigneeNames.join(", ")}</td>
+          <td>${capitalizeFirstChar(project.status)}</td>
+          <td>${new Date(project.due).toLocaleDateString()}</td>
+        </tr>`
+      );
+    });
+  
+  
+    const htmlContent = `
+      <html>
+        <head>
+          <title>Printed Report</title>
+        </head>
+        <body>
+          <table>
+            <thead>
+              <tr>
+                <th>Project Name</th>
+                <th>Project Lead</th>
+                <th>Process</th>
+                <th>Assignee</th>
+                <th>Status</th>
+                <th>Due</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${tableRows.join("")}
+            </tbody>
+          </table>
+        </body>
+      </html>
+    `;
+  
+    const printWindow = window.open('', '', 'width=800,height=600');
+    printWindow?.document.open();
+    printWindow?.document.write(htmlContent);
+    printWindow?.document.close();
+    printWindow?.print();
+  };
+
   return (
-    <div>
-      <table>
+    <div id="active-projects-table">
+      <div className="d-flex mb-2">
+          <div className="text-lg fw-semibold"> Active Projects </div>
+          <div className="export-report cursor-pointer" onClick={() => exportReport()}> <FontAwesomeIcon icon={faFileExport}/> Export Report </div>
+      </div>
+      <table >
         <thead className='table-tile'>
           <tr>
             <th onClick={() => handleSort('projectName')}>

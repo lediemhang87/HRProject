@@ -34,9 +34,9 @@ const SuperAdminSetWebsitePricing: React.FC = () => {
     }, []);
 
     return(
-        <div>
+        <div className="default-background-color">
             <NavBar isPhoneMode={isPhoneMode} toggleSidebar={toggleSidebar}/>
-            <Container fluid className="default-background-color">
+            <Container fluid >
                 <Row>
                     {(!isPhoneMode  || isSidebarOpen) &&
                         <Col lg={2} >

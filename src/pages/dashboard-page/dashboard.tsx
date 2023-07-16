@@ -10,8 +10,6 @@ import DashboardTable from "../../components/dashboard/dashboard-activeProject"
 import DashboardLocation from "../../components/dashboard/dashboard-location"
 import DashboardLatestTransaction from "../../components/dashboard/dashboard-latest-transaction"
 import DashboardUserLog from "../../components/dashboard/dashboard-userLog"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFileExport } from '@fortawesome/free-solid-svg-icons'
 import DashboardSystemStatus from "../../components/dashboard/dashboard-system-status"
 import DashboardCalendar from "../../components/dashboard/dashboard-calendar"
 
@@ -52,16 +50,6 @@ const Dashboard: React.FC = () => {
         { projectName: 'Example 25', projectLead: 4, process: 53, assignee: [2, 3, 5], status: 'inprogress', due: '09/24/2021' },
       ];
 
-    const latestTransaction = [
-        {source: 'Hydratech Soft.', date: '09/24/2023', amount: 5.99, txnType: 'Sub', status: 'Completed'},
-        {source: 'Locus & Locus',date: '09/24/2023', amount: 5.99, txnType: 'Sub', status: 'Failed'},
-        {source: 'XYZ Intl.', date: '09/24/2021', amount: 10.99, txnType: 'Sub', status: 'Completed'},
-        {source: 'Lendsqr Ltd', date: '09/25/2021', amount: 10.99, txnType: 'Sub', status: 'Completed'},
-        {source: 'Esya Inc', date: '09/24/2021', amount: 5.99, txnType: 'Sub', status: 'Completed'},
-        {source: 'Cynergy Tech.', date: '09/24/2021', amount: 5.99, txnType: 'Sub', status: 'Completed'},
-        {source: 'Flutterwave', date: '09/24/2021', amount: 5.99, txnType: 'Sub', status: 'Failed'},
-       
-    ]
 
     const userLogs = [
         {employeeId: '1001', employeeName: 'Ricky Antony', role: 'Web Designer', email:'abc@gmail.com', contact:'+234 802345 094', lastLogged: '08/09/2023 10:02', action: 'Checked User Account', status: 'Active'},
@@ -78,7 +66,8 @@ const Dashboard: React.FC = () => {
         apiCalls: 2,
       };
 
-  
+    
+    
     useEffect(() => {
         const handleResize = (): void => {
         setIsPhoneMode(window.innerWidth <= 768);
@@ -94,7 +83,7 @@ const Dashboard: React.FC = () => {
     }, []);
 
     return(
-        <div className="dashboard default-background-color">
+        <div className="default-background-color">
             <Navbar isPhoneMode={isPhoneMode} toggleSidebar={toggleSidebar}/>
             <Container fluid>
                 <Row>
@@ -121,11 +110,7 @@ const Dashboard: React.FC = () => {
                         <Row >
                             <Col lg={6}>
                                 <div className="active-projects">
-                                    <div className="title-div">
-                                        <div className="active-project-title"> Active Projects </div>
-                                        <div className="export-report"> <FontAwesomeIcon icon={faFileExport}/> Export Report </div>
-                                    </div>
-                                    <div className="dashboard-table">
+                                    <div id="active-projects-table" className="dashboard-table">
                                         <DashboardTable employees={employees} activeProjects={activeProjects}/>
                                     </div>    
                                 </div>
@@ -136,11 +121,11 @@ const Dashboard: React.FC = () => {
                         </Row>
                         <Row>
                             <Col lg={5}>
-                                <DashboardLatestTransaction transactions={latestTransaction} />
+                                <DashboardLatestTransaction/>
                             </Col>
 
                             <Col lg={3}>
-                                <DashboardSystemStatus status={status}/>
+                                <DashboardSystemStatus/>
                             </Col>
 
                             <Col lg={4}> 

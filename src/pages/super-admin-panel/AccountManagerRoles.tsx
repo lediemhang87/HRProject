@@ -34,9 +34,9 @@ const SuperAdminAccountManagerRoles: React.FC = () => {
     }, []);
 
     return(
-        <div>
+        <div className="default-background-color" >
             <NavBar isPhoneMode={isPhoneMode} toggleSidebar={toggleSidebar}/>
-            <Container fluid className="default-background-color">
+            <Container fluid >
                 <Row>
                     {(!isPhoneMode  || isSidebarOpen) &&
                         <Col lg={2} >
@@ -44,7 +44,6 @@ const SuperAdminAccountManagerRoles: React.FC = () => {
                         </Col>
                         
                     }
-                    
                         
                     <Col className='poppins' lg={10}>
                         <div className="fw-semibold mb-4"> Managers </div>

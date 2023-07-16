@@ -1,22 +1,54 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Chart from 'chart.js';
 import '../styles3.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSquare } from '@fortawesome/free-solid-svg-icons';
 import { Row, Col } from 'react-bootstrap';
-interface Status {
-  totalUptime: number;
-  totalDowntime: number;
-  serverDowntime: number;
-  apiCalls: number;
-}
 
-interface DoughnutChartProps {
-  status: Status;
-}
 
-const DoughnutChartComponent: React.FC<DoughnutChartProps> = ({ status }) => {
+const DoughnutChartComponent: React.FC = () => {
   const chartRef = useRef<HTMLCanvasElement | null>(null);
+
+  const todayStatus = {
+    totalUptime: 20,
+    totalDowntime: 2,
+    serverDowntime: 1,
+    apiCalls: 2,
+  };
+
+  const thisMonthStatus = {
+    totalUptime: 10,
+    totalDowntime: 8,
+    serverDowntime: 2,
+    apiCalls: 4,
+  };
+
+  const thisQuarterStatus = {
+    totalUptime: 15,
+    totalDowntime: 7,
+    serverDowntime: 1,
+    apiCalls: 1,
+  };
+
+  const [status, setStatus] = useState(todayStatus);
+
+  const handleStatusChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedOption = event.target.value;
+
+    switch (selectedOption) {
+      case 'option1':
+        setStatus(todayStatus);
+        break;
+      case 'option2':
+        setStatus(thisMonthStatus);
+        break;
+      case 'option3':
+        setStatus(thisQuarterStatus);
+        break;
+      default:
+        setStatus(todayStatus);
+    }
+  };
 
   useEffect(() => {
     if (chartRef.current !== null) {
@@ -69,7 +101,7 @@ const DoughnutChartComponent: React.FC<DoughnutChartProps> = ({ status }) => {
         <div className='title-div'> 
             <div className='title'> System Status </div> 
             <div className='selection'> 
-                <select id="mySelect">
+                <select id="mySelect"  onChange={handleStatusChange}>
                     <option value="option1">Today</option>
                     <option value="option2">This Month</option>
                     <option value="option3">This quarter</option>

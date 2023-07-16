@@ -94,8 +94,8 @@ const SavedNotifTable: React.FC<SavedNotifTableProps> = ({notifs}) => {
 
           <div className='p-4'>
               <table className='w-100 grid-table'>
-                <thead className='background-pink'>
-                  <tr>
+                <thead className='background-lightgrey'>
+                  <tr className=''>
                     <th onClick={() => handleSort('sn')}>
                       S/N {sortColumn === 'sn' && <span>{sortOrder === 'asc' ? '▲' : '▼'}</span>}
                     </th>

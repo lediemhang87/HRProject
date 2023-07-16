@@ -31,9 +31,9 @@ const SuperAdminManageCustomer: React.FC = () => {
     }, []);
 
     return(
-        <div>
+        <div className="default-background-color poppins">
             <NavBar isPhoneMode={isPhoneMode} toggleSidebar={toggleSidebar}/>
-            <Container fluid className="default-background-color poppins">
+            <Container fluid >
                 <Row>
                     {(!isPhoneMode  || isSidebarOpen) &&
                         <Col lg={2} >

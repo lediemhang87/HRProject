@@ -1,7 +1,14 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef , useState} from 'react';
 import Chart from 'chart.js';
+interface ChartProps {
+  label: string[],
+  dashLine: number[]
+}
+interface ChartTypeProps{
+  chartType : ChartProps
+}
 
-const TotalRevenueChart = () => {
+const TotalRevenueChart:React.FC<ChartTypeProps> = ({chartType}) => {
   const chartRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
@@ -14,7 +21,7 @@ const TotalRevenueChart = () => {
         gradient.addColorStop(1, 'rgba(255, 255, 255, 0)'); 
 
         const data = {
-          labels: ['May', 'June', 'July', 'Aug', 'Sep', 'Oct'],
+          labels: chartType.label,
           datasets: [
             
             {
@@ -23,7 +30,7 @@ const TotalRevenueChart = () => {
               backgroundColor: gradient,
               borderColor: '#0D99FF',
               borderWidth: 1,
-              data: [620, 680, 600, 700, 620, 710], 
+              data: chartType.dashLine, 
               tension: 0,
             },
             
@@ -36,7 +43,7 @@ const TotalRevenueChart = () => {
             yAxes: [
               {
                 ticks: {
-                  stepSize: 200,
+                  stepSize: 20,
                   beginAtZero: true,
                 },
               },
@@ -49,13 +56,13 @@ const TotalRevenueChart = () => {
         };
 
         new Chart(ctx, {
-          type: 'bar',
+          type: 'line',
           data: data,
           options: options,
         });
       }
     }
-  }, []);
+  }, [chartType]);
 
   return <canvas ref={chartRef} />;
 };

@@ -120,12 +120,7 @@ const handleAddTodo = (e: React.FormEvent) => {
     setNewTodo({ id: '', title: '', date: '', time: '', status: 'latest-to-do', isChecked: false });
     setShowAddForm(false);
   };
-  const handleClickOutside = (event: React.MouseEvent<HTMLDivElement>) => {
-    const popupElement = document.getElementById('popup');
-    if (popupElement && !popupElement.contains(event.target as Node)) {
-      setShowAddForm(false);
-    }
-  };
+  
   const handleUpdateTodo = (updatedTodo: TodoItem) => {
     setTodoList((prevTodoList) => {
       const updatedTodoList = prevTodoList.map((todo) => {
@@ -165,7 +160,7 @@ const handleAddTodo = (e: React.FormEvent) => {
           </div>
         </div>
         
-      )}
+      )} 
 
       <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
 

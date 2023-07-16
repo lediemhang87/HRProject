@@ -1,46 +1,24 @@
 .nav-bar {
-    display: flex;
-    align-items: center;
     background-color: white;
-    .brand{
-        display: flex;
-        align-items: flex;
-        
-    }
-    .logo {
-      height: 40px;
-      margin-left: 40px;
-    }
-
-   
-   
-    .input {
-      height: 30px;
-      width: 100%;
-      border: 1px solid grey;
-      border-radius: 10px;
-      width: 300px;
-      margin-left: 30%;
-
-    }
-
-    .profile {
-      display: flex;
-      align-items: center;
-    }
-  
-    .profilePic {
-      height: 40px;
-      margin-right: 20px;
-    }
-  
-  
-    .icon {
-      color: white;
-      background-color: #f3723f;
-      border-radius: 10px;
+    .notification-popup {
+      position: absolute;
+      top: 100%;
+      right: 20px;
+      width: 350px;
+      max-height: 400px;
+      background-color: #fff4e0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       padding: 10px;
-    }  
+      overflow-y: auto;
+      animation: slide-down 0.3s forwards;
+    }
+
+    .notification-popup-item:hover{
+      background-color: rgb(255, 218, 98);
+      cursor: pointer;
+    } 
   }
 
 
@@ -52,22 +30,14 @@
     font-size: 15px;
     padding: 10px;
     color:#7D8FB3;
-    
-
-    .sidebar-nav {
-        list-style: none;
-        padding: 0;
-        
-    }
       
     .sidebar-item {
-        align-items: center;
-        background-color: white;
-        border-radius: 10px;
-        display: flex;
-        min-height: 60px;
-        margin-bottom: 10px;
-        overflow: hidden;
+      align-items: center;
+      background-color: white;
+      border-radius: 10px;
+      display: flex;
+      min-height: 60px;
+      margin-bottom: 10px;
     }
     .sidebar-item:hover{
       background-color: #f3723f;
@@ -75,12 +45,9 @@
     }
     
     .sidebar-link {
-        width: 100%;
-        text-decoration: none;
-        
+        width: 100%;        
     }
-    .font-awesome-icon{
-        
+    .sidebar-item-content{
         display: flex;
         align-items: center;
         padding: 10px;
@@ -97,14 +64,12 @@
         border-radius: 10px;
         display: flex;
         min-height: 60px;
-        margin-bottom: 10px;
-        
+        margin-bottom: 10px; 
     }
 
     .logout{
         width: 100%;
         color: #F3723F;
-
     }
     .right-arrow{
       margin-left: auto;
@@ -116,7 +81,6 @@
       width: 90%;
     }
 
-    
     .sidebar-dropdown-item{
       display: flex;
       align-items: center;
@@ -137,10 +101,11 @@
 
     .active{
       background-color: #F3723F;
-      color: white
-  }
+      color: white;
+    }
+  
     
-  }
+}
   
 .rectangle{
     overflow: hidden;

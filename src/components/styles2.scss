@@ -85,10 +85,10 @@
         align-items: center;
         justify-content: center;
         z-index: 999;
-        transition: opacity 0.3s, visibility 0.3s;
-    }
-      
-   
+        opacity: 0;
+        visibility: hidden;
+        animation: scale-in 0.3s ease forwards;
+      }
       
 }
 
@@ -118,7 +118,7 @@
         height: 300px;
     }
 }
-
+@media screen, print {
 .active-projects{
     font-family: Poppins, sans-serif;
     font-size: 13px;
@@ -246,7 +246,8 @@
         background-color: #F3723F;
         color: white;
     }
-}
+    
+}}
 
 .users-by-location {
     display: flex;

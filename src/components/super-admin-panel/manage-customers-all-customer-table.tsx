@@ -167,9 +167,9 @@ const ManageCustomerAllCustomerTable: React.FC<AllCustomerProps> = ({customers})
                     </thead>
                     <tbody >
                         {visibleCustomers.map((customer, index) => (
-                            <tr key={index} onClick={() => handleRowClick(customer)} className="cursor-pointer">
+                            <tr key={index}>
                                 <td className="align-middle text-center"> {customer.sn} </td>
-                                <td className="align-middle"> {customer.companyName} </td>
+                                <td className="align-middle cursor-pointer link-dark" onClick={() => handleRowClick(customer)}> {customer.companyName} </td>
                                 <td className="align-middle"> {customer.balance} </td>
                                 <td className="align-middle"> {customer.dateCreated} </td>
                                 <td className="align-middle"> {customer.lastLogin} </td>
