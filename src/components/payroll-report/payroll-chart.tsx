@@ -1,14 +1,11 @@
 import React, { useEffect, useRef , useState} from 'react';
 import Chart from 'chart.js';
-interface ChartProps {
-  label: string[],
-  dashLine: number[]
-}
-interface ChartTypeProps{
-  chartType : ChartProps
-}
 
-const TotalRevenueChart:React.FC<ChartTypeProps> = ({chartType}) => {
+const PayrollChart:React.FC = () => {
+  const chart = {
+    label: ['04/01', '04/02', '04/03', '04/04', '04/05', '04/06', '04/07' ],
+    data: [70, 60, 90, 50, 90, 120, 70],
+  } 
   const chartRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
@@ -16,22 +13,18 @@ const TotalRevenueChart:React.FC<ChartTypeProps> = ({chartType}) => {
       const ctx = chartRef.current.getContext('2d');
 
       if (ctx) {
-        const gradient = ctx.createLinearGradient(0, 0, 0, chartRef.current.height);
-        gradient.addColorStop(0, 'rgb(180, 180, 180,0.5)'); // Start color
-        gradient.addColorStop(1, 'rgba(255, 255, 255, 0)'); 
 
         const data = {
-          labels: chartType.label,
+          labels: chart.label,
           datasets: [
             
             {
               type: 'line',
               label: 'Line Dataset',
-              backgroundColor: gradient,
-              borderColor: '#0D99FF',
-              borderWidth: 1,
-              data: chartType.dashLine, 
-              tension: 0,
+              backgroundColor: 'transparent',
+              borderColor: '#0E9F6E',
+              borderWidth: 2,
+              data: chart.data , 
             },
             
           ],
@@ -47,8 +40,12 @@ const TotalRevenueChart:React.FC<ChartTypeProps> = ({chartType}) => {
             yAxes: [
               {
                 ticks: {
-                  stepSize: 20,
+                  stepSize: 40,
                   beginAtZero: true,
+                  max: 240,
+                  callback: function (value: number) {
+                    return value + 'K'; // Append 'K' to the tick label
+                  },
                 },
               },
             ],
@@ -66,9 +63,9 @@ const TotalRevenueChart:React.FC<ChartTypeProps> = ({chartType}) => {
         });
       }
     }
-  }, [chartType]);
+  }, [chart]);
 
-  return <canvas ref={chartRef} />;
+  return <canvas ref={chartRef}/>;
 };
 
-export default TotalRevenueChart;
+export default PayrollChart;

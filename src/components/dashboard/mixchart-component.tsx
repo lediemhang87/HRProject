@@ -61,7 +61,11 @@ const MixedChartComponent: React.FC<MixedChartProps> = ({chartType}) => {
 
         const options = {
           scales: {
-            
+            xAxes: [{
+              gridLines: {
+                  color: "rgba(0, 0, 0, 0)",
+              }
+            }],
             yAxes: [
               {
                 ticks: {

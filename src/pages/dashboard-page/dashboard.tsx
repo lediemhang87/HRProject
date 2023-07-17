@@ -59,13 +59,6 @@ const Dashboard: React.FC = () => {
         {employeeId: '1005', employeeName: 'Ricky Antony', role: 'Web Designer', email:'abc@gmail.com', contact:'+234 802345 094', lastLogged: '08/09/2023 12:10', action: 'Suspended User', status: 'Pending'},
     ]
 
-    const status = {
-        totalUptime: 20,
-        totalDowntime: 2,
-        serverDowntime: 1,
-        apiCalls: 2,
-      };
-
     
     
     useEffect(() => {

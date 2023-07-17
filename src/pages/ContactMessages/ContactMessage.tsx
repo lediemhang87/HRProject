@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import NavBar from "../components/Navbar"
-import Sidebar from "../components/Sidebar";
+import NavBar from "../../components/Navbar"
+import Sidebar from "../../components/Sidebar";
 import { Container, Row, Col } from "react-bootstrap";
-const Sample: React.FC = () => {
+import ContactMessagesDiv from "../../components/contact-message/contact-message";
+const ContactMessages: React.FC = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [isPhoneMode, setIsPhoneMode] = useState(false);
 
@@ -31,14 +32,13 @@ const Sample: React.FC = () => {
                 <Row>
                     {(!isPhoneMode  || isSidebarOpen) &&
                         <Col lg={2} >
-                            <Sidebar activeItem="manageCustomer"/>
-                        </Col>
-                        
+                            <Sidebar activeItem="contactMessages"/>
+                        </Col>       
                     }
-                    <Col lg={10}> Sample </Col>
+                    <Col lg={10}> <ContactMessagesDiv/> </Col>
                 </Row>
             </Container>
         </div>
     )
 }
-export default Sample
+export default ContactMessages

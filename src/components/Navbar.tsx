@@ -94,7 +94,7 @@ function NavBar({ isPhoneMode, toggleSidebar }: NavBarProps): JSX.Element {
                   <p> Babatunde Samuel </p>
                 </Nav.Link>
                 
-                <Nav.Link href="#setting">
+                <Nav.Link href="/settings">
                   <FontAwesomeIcon className='text-orange' icon={faGear} />                
                 </Nav.Link>
 

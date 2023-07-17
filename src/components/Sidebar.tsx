@@ -20,6 +20,14 @@ function Sidebar({ activeItem, }: SidebarProps): JSX.Element {
     const toggleDropdownSuperAdminPanel = () => {
         setIsSuperAdminPanelDropdownOpen(!isSuperAdminPanelDropdownOpen);
     };
+
+    const activeTeam = (activeItem == 'addNewTeamMember') || (activeItem == 'viewTeamMember');
+
+    const [isTeamDropdownOpen, setIsTeamDropdownOpen] = useState(activeTeam);
+
+    const toggleDropdownTeam = () => {
+        setIsTeamDropdownOpen(!isTeamDropdownOpen);
+    };
     
     return(
         <div className="sidebar">
@@ -82,21 +90,21 @@ function Sidebar({ activeItem, }: SidebarProps): JSX.Element {
                         </a>
                     </div>
                 )}
-                <li className="sidebar-item">
-                    <a href="#" className="sidebar-link">
+                <li className={`sidebar-item ${activeItem === 'payrollReport' ? 'active' : ''}`}>
+                    <a href="/payrollReport" className="sidebar-link">
                         <div className='sidebar-item-content'> <FontAwesomeIcon className='icon' icon={faCalendarDays} /> Payroll Report </div>
                         
                     </a>
                 </li>
-                <li className="sidebar-item">
-                    <a href="#" className="sidebar-link">
+                <li className={`sidebar-item ${activeItem === 'salesReport' ? 'active' : ''}`}>
+                    <a href="/salesReport" className="sidebar-link">
                         <div className='sidebar-item-content'> <FontAwesomeIcon className='icon' icon={faBusinessTime} /> Sales Report </div>
 
                     </a>
                 </li>
-                <li className="sidebar-item">
-                    <a href="#" className="sidebar-link">
-                        <div className='sidebar-item-content'> 
+                <li className={`sidebar-item ${isTeamDropdownOpen || activeTeam ? 'active' : ''}`}>
+                    <a href="#" className="sidebar-link" >
+                        <div className='sidebar-item-content' onClick={toggleDropdownTeam}> 
                             <FontAwesomeIcon className='icon' icon={faUsers} /> 
                             Teams
                             <FontAwesomeIcon className='icon right-arrow' icon={faAngleRight}/> 
@@ -104,20 +112,38 @@ function Sidebar({ activeItem, }: SidebarProps): JSX.Element {
                         
                     </a>
                 </li>
-                <li className="sidebar-item">
-                    <a href="#" className="sidebar-link">
+
+                {isTeamDropdownOpen && (
+                    <div className="super-admin-panel-dropdown-content ">
+                        <a href="/team/addNewTeamMember" className="sidebar-link">
+                            <div className={`sidebar-dropdown-item ${activeItem === 'addNewTeamMember' ? 'active' : ''}`}> 
+                            <FontAwesomeIcon className='icon' icon={faEnvelope} />  
+                            Add New Team Member </div>
+                        </a>
+
+                        <a href="/team/viewTeamMember" className="sidebar-link">
+                            <div className={`sidebar-dropdown-item ${activeItem === 'viewTeamMember' ? 'active' : ''}`}> 
+                                <FontAwesomeIcon className='icon' icon={faUser} /> 
+                                View Team Member
+                            </div>
+                        </a>
+                      
+                    </div>
+                )}
+                <li className={`sidebar-item ${activeItem === 'contactMessages' ? 'active' : ''}`}>
+                    <a href="/contactMessages" className="sidebar-link">
                         <div className='sidebar-item-content'> <FontAwesomeIcon className='icon' icon={faPhoneVolume} /> Contact Messsages </div>
                     </a>
                 </li>
-                <li className="sidebar-item">
-                    <a href="#" className="sidebar-link">
+                <li className={`sidebar-item ${activeItem === 'settings' ? 'active' : ''}`}>
+                    <a href="/settings" className="sidebar-link">
                         <div className='sidebar-item-content'> <FontAwesomeIcon className='icon' icon={faGear} /> Settings </div>
                         
                     </a>
                 </li>
                
                 <li className="logout-sidebar-item  ">
-                    <a href="#" className="sidebar-link">
+                    <a href="/" className="sidebar-link">
                         <div className='sidebar-item-content logout '> <FontAwesomeIcon className='icon' icon={faRightFromBracket} /> Logout </div>
                     </a>
                 </li>

@@ -14,7 +14,12 @@ import SuperAdminAccountManagerRoles from './pages/super-admin-panel/AccountMana
 import SuperAdminSetWebsitePricing from './pages/super-admin-panel/SetWebsitePricing';
 import SuperAdminSetPaymentGateway from './pages/super-admin-panel/SetPaymentGateway';
 import CustomerDetailsPage from './pages/super-admin-panel/CustomerDetailPage';
-
+import AddNewTeamMember from './pages/team/AddNewTeamMember';
+import ViewTeamMember from './pages/team/ViewTeamMember';
+import PayrollReport from './pages/payroll-report/Payroll-report';
+import SalesReport from './pages/sales-report/SalesReport';
+import ContactMessages from './pages/ContactMessages/ContactMessage';
+import Settings from './pages/settings/Settings';
 const App = () => {
   useEffect(() => {
     AOS.init();
@@ -35,6 +40,13 @@ const App = () => {
           <Route path="/superadminpanel/website-pricing" element={<SuperAdminSetWebsitePricing/>} />
           <Route path="/superadminpanel/payment-gateway" element={<SuperAdminSetPaymentGateway/>} />
           <Route path="/superadminpanel/manage-customer/:customerID" element={<CustomerDetailsPage/>} />
+          <Route path="/payrollReport" element={<PayrollReport/>} />
+          <Route path="/salesReport" element={<SalesReport/>} />
+          <Route path="/team/addNewTeamMember" element={<AddNewTeamMember/>} />
+          <Route path="/team/viewTeamMember" element={<ViewTeamMember/>} />
+          <Route path="/contactMessages" element={<ContactMessages/>} />
+          <Route path="/settings" element={<Settings/>} />
+
           
       </Routes>
     </div>
