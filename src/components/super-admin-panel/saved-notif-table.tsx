@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft, faAngleRight, faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faAngleRight, faPen, faTrash, faSave } from '@fortawesome/free-solid-svg-icons';
 
 interface Notif {
   sn: number;
@@ -190,7 +190,7 @@ const SavedNotifTable: React.FC<SavedNotifTableProps> = ({ notifs, onEdit, onDel
                     <>
                       <FontAwesomeIcon
                         className="mr-5"
-                        icon={faPen}
+                        icon={faSave}
                         onClick={() => handleSave(notif.sn)}
                         style={{ cursor: 'pointer' }}
                       />

@@ -44,7 +44,7 @@ const SuperAdminManageCustomer: React.FC = () => {
                     <Col lg={10}> 
                         <div className="border bg-white p-4 rounded">
                             <div className="text-xl fw-semibold border-bottom p-2 mb-4"> All Customer </div>
-                            <ManageCustomerAllCustomerTable customers={customers}/>
+                            <ManageCustomerAllCustomerTable customersData={customers}/>
                         </div>
                         <div className="mt-8 "> 
                             <div className="d-flex justify-content-center mb-10 "> 

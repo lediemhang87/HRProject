@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPenToSquare, faTrash, faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { faPenToSquare, faTrash, faAngleLeft, faAngleRight, faSave} from "@fortawesome/free-solid-svg-icons";
 
 interface Manager {
     sn: number,
@@ -11,9 +11,12 @@ interface Manager {
 }
 
 interface ManagerProps {
-    managers: Manager[];
+    managersData: Manager[];
 }
-const AccountManagerTable: React.FC<ManagerProps> = ({managers}) => {
+const AccountManagerTable: React.FC<ManagerProps> = ({managersData}) => {
+    const [managers, setManagers] = useState<Manager[]>(managersData || []);    
+    const [editableManager, setEditableManager] = useState<Manager | null>(null);
+    const [editedManager, setEditedManager] = useState<Partial<Manager>>({});
     const [startIndex, setStartIndex] = useState(0);
     const itemsPerPage = 5;
     const [sortColumn, setSortColumn] = useState<keyof Manager>('sn');
@@ -49,6 +52,40 @@ const AccountManagerTable: React.FC<ManagerProps> = ({managers}) => {
         }
     }
 
+    const handleEdit = (manager: Manager) => {
+   
+        setEditableManager(manager);
+        const managerToEdit = managers.find((item) => item.sn === manager.sn);
+        if (managerToEdit) {
+          setEditedManager(managerToEdit);
+        }
+      };
+      
+    const handleDelete = (manager: Manager) => {
+        // Implement logic to delete the customer
+        const updatedCustomers = managers.filter(
+            (c) => c.sn !== manager.sn
+        );
+        setManagers(updatedCustomers);
+    };
+
+    const handleSave = (manager: Manager) => {
+        if (!editedManager.accountManager || !editedManager.role  ) {
+            alert('Please fill in all the required fields.');
+            return;
+        }
+        
+        const updatedManager = managers.map((c) => {
+            if (c.sn === manager.sn) {
+            return { ...c, ...editedManager };
+            }
+            return c;
+        });
+        
+        setManagers(updatedManager);
+        setEditableManager(null);
+        setEditedManager({});
+    };
 
     const sortedManagers = [...managers].sort((a,b) => {
         const valueA = a[sortColumn];
@@ -128,18 +165,49 @@ const AccountManagerTable: React.FC<ManagerProps> = ({managers}) => {
                         {visibleManagers.map((manager, index) => (
                             <tr key={index}>
                                 <td className="align-middle text-center"> {manager.sn} </td>
-                                <td className="align-middle text-center"> {manager.accountManager} </td>
+                                <td className="align-middle text-center">
+                                    {editableManager && editableManager.sn === manager.sn ? (
+                                        <input
+                                        className="w-100 border p-2"
+                                        value={editedManager.accountManager || ''}
+                                        onChange={(e) =>
+                                            setEditedManager({ ...editedManager, accountManager: (e.target.value) })
+                                        }
+                                        />
+                                      ) :(
+                                    <span> {manager.accountManager} </span>
+                                      )}
+                                </td>
                                 <td className="align-middle text-center"> {manager.dateAdded} </td>
 
                                 <td className={`align-middle`}>
-                                    <div className={`${roleClass[manager.role]}`}>
-                                     {manager.role}
-                                    </div>
+                                    {/* <div className={`${roleClass[manager.role]}`}>
+                                     
+                                    </div> */}
+                                    {editableManager && editableManager.sn === manager.sn ? (
+                                        <select
+                                        className="w-100 border p-2"
+                                        value={editedManager.role || ''}
+                                        onChange={(e) =>
+                                        setEditedManager({ ...editedManager, role: e.target.value }) }>
+                                            <option value="Technical Support">Technical Support</option>
+                                            <option value="Admin">Admin</option>
+                                            <option value="Customer Support">Customer Support</option>
+                                            <option value="Developer">Developer</option>
+                                        </select>
+                                    ):(
+                                        <span  className={`${roleClass[manager.role]}`}> {manager.role} </span>
+                                    )}
                                     
                                 </td>
                                 <td className="align-middle text-center"> 
-                                    <FontAwesomeIcon className="mr-4" icon={faPenToSquare}/> 
-                                    <FontAwesomeIcon className="text-danger" icon={faTrash} />
+                                {editableManager && editableManager.sn === manager.sn ? (
+                                    <FontAwesomeIcon className='mr-3' icon={faSave} onClick={() => handleSave(manager)} />
+                                ) : 
+                                    <FontAwesomeIcon className='mr-3' icon={faPenToSquare} onClick={() => handleEdit(manager)} />
+                                }
+                                    
+                                    <FontAwesomeIcon className="text-danger" icon={faTrash} onClick={() => handleDelete(manager)} />
                                 </td>
                             </tr>
                         ))}

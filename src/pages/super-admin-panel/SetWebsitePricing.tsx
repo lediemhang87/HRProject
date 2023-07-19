@@ -45,58 +45,11 @@ const SuperAdminSetWebsitePricing: React.FC = () => {
                         
                     }
                     <Col className='poppins' lg={10}>
-                        <div className="fw-semibold mb-4"> Set Website Prices & Features </div>
-                        <div className="bg-white rounded border mb-8">
-                            <div className="fw-semibold border-bottom p-4 d-flex vertical-align "> 
-                                <div className="mr-auto"> Set Default Prices  </div>
-                                <div className=" background-orange rounded p-2"> + Add New Pricing </div>
-                            </div>
-                            <div className="p-4">
-                                <div className="fw-semibold mb-10"> Plans Pricing <span className="text-danger">*</span></div>
+                        
 
-                                <div className="d-flex justify-content-center mb-6">
-                                    <input className='w-25 border mr-8 rounded p-3' placeholder="Plan Name"/>
-                                    <input className='w-25 border mr-8 rounded p-3' placeholder="Plan Price"/>
-                                    <select className=' w-25 mr-16 border rounded p-3' placeholder="Frequency">
-                                        <option> 1 </option>
-                                        <option> 2 </option>
-                                    </select>
-                                    <button className=" background-orange p-3 rounded text-white"> Save </button>
-                                </div>
-
-                                <div className="d-flex justify-content-center mb-6">
-                                    <input className='w-25 border mr-8 rounded p-3' placeholder="Plan Name"/>
-                                    <input className='w-25 border mr-8 rounded p-3' placeholder="Plan Price"/>
-                                    <select className=' w-25 mr-16 border rounded p-3' placeholder="Frequency">
-                                        <option> 1 </option>
-                                        <option> 2 </option>
-                                    </select>
-                                    <button className=" background-orange p-3 rounded text-white"> Save </button>
-                                </div>
-
-                                <div className="d-flex justify-content-center mb-6">
-                                    <input className='w-25 border mr-8 rounded p-3' placeholder="Plan Name"/>
-                                    <input className='w-25 border mr-8 rounded p-3' placeholder="Plan Price"/>
-                                    <select className=' w-25 mr-16 border rounded p-3' placeholder="Frequency">
-                                        <option> 1 </option>
-                                        <option> 2 </option>
-                                    </select>
-                                    <button className=" background-orange p-3 rounded text-white"> Save </button>
-                                </div>
-                            </div>
-
-                            
-                        </div>
-
-                        <div className="bg-white rounded border">
-                            <div className="fw-semibold border-bottom p-4 d-flex vertical-align "> 
-                                <div className="mr-auto"> Set Features  </div>
-                            </div>
-                            <div className="p-4">
+                        
                                 <SetFeaturesTable features={features} />    
-                            </div>
                             
-                        </div>    
                     </Col>
                 </Row>
             </Container>

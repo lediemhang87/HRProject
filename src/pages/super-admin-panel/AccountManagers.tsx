@@ -52,7 +52,7 @@ const SuperAdminAccountManagers: React.FC = () => {
                                 <div className=" background-orange rounded p-2"> + Add Account Manager </div>
                             </div>
                             <div className="p-4">
-                                <AccountManagerTable  managers={accountManagers}/> 
+                                <AccountManagerTable  managersData={accountManagers}/> 
                             </div>
                         </div>    
                     </Col>

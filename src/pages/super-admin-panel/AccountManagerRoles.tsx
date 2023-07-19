@@ -53,7 +53,7 @@ const SuperAdminAccountManagerRoles: React.FC = () => {
                                 <div className=" background-orange rounded p-2"> + Add New Manager Role </div>
                             </div>
                             <div className="p-4">
-                                <AccountManagerRolesTable  roles={managers}/> 
+                                <AccountManagerRolesTable  rolesData={managers}/> 
                             </div>
                         </div>    
                     </Col>
