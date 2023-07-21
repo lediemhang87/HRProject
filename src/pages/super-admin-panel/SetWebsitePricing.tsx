@@ -6,10 +6,10 @@ import SetFeaturesTable from "../../components/super-admin-panel/set-features-ta
 const SuperAdminSetWebsitePricing: React.FC = () => {
 
     const features = [
-        { sn: 1, planName: 'Essential', features: ['Manage Customers', 'Manage Resellers', 'Payment History', 'SMS Delivery Reports', 'Voice Delivery Reports'], dateUpdated: '03/09/2920'},
-        { sn: 2, planName: 'Premium', features: ['Manage Customers', 'Manage Resellers', 'Payment History', 'SMS Delivery Reports', 'Voice Delivery Reports'], dateUpdated: '03/09/2920'},
-        { sn: 3, planName: 'Boost', features: ['Manage Customers', 'Manage Resellers', 'Payment History', 'SMS Delivery Reports', 'Voice Delivery Reports'], dateUpdated: '03/09/2920'},
-        { sn: 4, planName: 'Perform', features: ['Manage Customers', 'Manage Resellers', 'Payment History', 'SMS Delivery Reports', 'Voice Delivery Reports'], dateUpdated: '03/09/2920'},
+        { sn: 1, price: 10, planName: 'Essential', feature: ['Manage Customers', 'Manage Resellers'], dateUpdated: '03/09/2920'},
+        { sn: 2, price: 20, planName: 'Premium', feature: ['Manage Customers', 'Manage Resellers', 'Payment History', ], dateUpdated: '03/09/2920'},
+        { sn: 3, price: 30, planName: 'Boost', feature: ['Manage Customers', 'Manage Resellers', 'Payment History', 'SMS Delivery Reports',], dateUpdated: '03/09/2920'},
+        { sn: 4, price: 40, planName: 'Perform', feature: ['Manage Customers', 'Manage Resellers', 'Payment History', 'SMS Delivery Reports', 'Voice Delivery Reports'], dateUpdated: '03/09/2920'},
     ]
 
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -48,7 +48,7 @@ const SuperAdminSetWebsitePricing: React.FC = () => {
                         
 
                         
-                                <SetFeaturesTable features={features} />    
+                                <SetFeaturesTable featuresData={features} />    
                             
                     </Col>
                 </Row>

@@ -6,10 +6,10 @@ import AccountManagerRolesTable from "../../components/super-admin-panel/account
 
 const SuperAdminAccountManagerRoles: React.FC = () => {
     const managers = [
-        {sn: 1, accountManagerRole: 'Technical Support', function: 'Check user info and resolve queries', roles: ['Manage Customers', 'Manage Resellers', 'Payment History', 'SMS Delivery Reports', 'Voice Delivery Reports'], dateUpdated: '03/09/2020' },
-        {sn: 2, accountManagerRole: 'Admin', function: 'Check user info and resolve queries', roles: ['Manage Customers', 'Manage Resellers', 'Payment History'], dateUpdated: '03/09/2020' },
-        {sn: 3, accountManagerRole: 'Customer', function: 'Check user info and resolve queries', roles: ['Manage Customers', 'Manage Resellers', 'Payment History'], dateUpdated: '03/09/2020' },
-        {sn: 4, accountManagerRole: 'Developer', function: 'Check user info and resolve queries', roles: ['Manage Customers', 'Manage Resellers', 'Payment History'], dateUpdated: '03/09/2020' },  
+        {sn: 1, accountManagerRole: 'Technical Support', roleFunction: 'Check user info and resolve queries', roles: ['Manage Customers', 'Manage Resellers', 'Payment History', 'SMS Delivery Reports', 'Voice Delivery Reports'], dateUpdated: '03/09/2020' },
+        {sn: 2, accountManagerRole: 'Admin', roleFunction: 'Check user info and resolve queries', roles: ['Manage Customers', 'Manage Resellers', 'Payment History'], dateUpdated: '03/09/2020' },
+        {sn: 3, accountManagerRole: 'Customer', roleFunction: 'Check user info and resolve queries', roles: ['Manage Customers', 'Manage Resellers', 'Payment History'], dateUpdated: '03/09/2020' },
+        {sn: 4, accountManagerRole: 'Developer', roleFunction: 'Check user info and resolve queries', roles: ['Manage Customers', 'Manage Resellers', 'Payment History'], dateUpdated: '03/09/2020' },  
     ]
 
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -46,16 +46,9 @@ const SuperAdminAccountManagerRoles: React.FC = () => {
                     }
                         
                     <Col className='poppins' lg={10}>
-                        <div className="fw-semibold mb-4"> Managers </div>
-                        <div className="bg-white rounded border">
-                            <div className="fw-semibold border-bottom p-4 d-flex vertical-align "> 
-                                <div className="mr-auto"> Account Managers  </div>
-                                <div className=" background-orange rounded p-2"> + Add New Manager Role </div>
-                            </div>
-                            <div className="p-4">
-                                <AccountManagerRolesTable  rolesData={managers}/> 
-                            </div>
-                        </div>    
+                       
+                        <AccountManagerRolesTable  rolesData={managers}/> 
+                               
                     </Col>
                         
                         

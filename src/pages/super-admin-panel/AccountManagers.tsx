@@ -45,16 +45,9 @@ const SuperAdminAccountManagers: React.FC = () => {
                         
                     }
                     <Col className='poppins' lg={10}>
-                        <div className="fw-semibold mb-4"> Managers </div>
-                        <div className="bg-white rounded border">
-                            <div className="fw-semibold border-bottom p-4 d-flex vertical-align "> 
-                                <div className="mr-auto"> Account Managers  </div>
-                                <div className=" background-orange rounded p-2"> + Add Account Manager </div>
-                            </div>
-                            <div className="p-4">
+                        
                                 <AccountManagerTable  managersData={accountManagers}/> 
-                            </div>
-                        </div>    
+                            
                     </Col>
                 </Row>
             </Container>

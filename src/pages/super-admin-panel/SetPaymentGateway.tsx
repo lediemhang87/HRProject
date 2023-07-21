@@ -46,10 +46,8 @@ const SuperAdminSetPaymentGateway: React.FC = () => {
                         
                     }
                     <Col lg={10}> 
-                        <div className="border bg-white p-4 rounded">
-                            <div className="text-xl fw-semibold border-bottom p-2 mb-4"> All Customer </div>
-                            <SetPaymentGateWayTable paymentSettings={customers}/>
-                        </div>
+                        
+                            <SetPaymentGateWayTable paymentSettingsData={customers}/>
                         <div className="mt-8 "> 
                             <div className="d-flex justify-content-center mb-10 "> 
                                 <div className=" background-darkblue vertical-align d-flex text-white w-25 height-80 mr-20 p-4 rounded">
