@@ -135,12 +135,7 @@ function Sidebar({ activeItem, }: SidebarProps): JSX.Element {
                         <div className='sidebar-item-content'> <FontAwesomeIcon className='icon' icon={faPhoneVolume} /> Contact Messsages </div>
                     </a>
                 </li>
-                <li className={`sidebar-item ${activeItem === 'settings' ? 'active' : ''}`}>
-                    <a href="/settings" className="sidebar-link">
-                        <div className='sidebar-item-content'> <FontAwesomeIcon className='icon' icon={faGear} /> Settings </div>
-                        
-                    </a>
-                </li>
+               
                
                 <li className="logout-sidebar-item  ">
                     <a href="/" className="sidebar-link">

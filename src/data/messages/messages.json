@@ -1,0 +1,51 @@
+[
+    {
+      "id": 1,
+      "conversation_id": 101,
+      "sender_id": 1,
+      "recipient_id": 1,
+      "content": "Hello! How can we assist you with your order?",
+      "timestamp": "2023-07-20 10:05"
+    },
+    {
+      "id": 2,
+      "conversation_id": 101,
+      "sender_id": 2,
+      "recipient_id": 1,
+      "content": "I have a question about the shipping status.",
+      "timestamp": "2023-07-20 10:07"
+    },
+    {
+      "id": 3,
+      "conversation_id": 102,
+      "sender_id": 1,
+      "recipient_id": 1,
+      "content": "Hello! We'd love to hear your feedback on our service.",
+      "timestamp": "2023-07-21 15:32"
+    },
+    {
+      "id": 4,
+      "conversation_id": 102,
+      "sender_id": 2,
+      "recipient_id": 1,
+      "content": "I had a great experience with your support team!",
+      "timestamp": "2023-07-21 15:35"
+    },
+    {
+      "id": 5,
+      "conversation_id": 103,
+      "sender_id": 1,
+      "recipient_id": 1,
+      "content": "Is there any upcoming system maintenance?",
+      "timestamp": "2023-07-22 09:46"
+    },
+    {
+      "id": 6,
+      "conversation_id": 103,
+      "sender_id": 3,
+      "recipient_id": 1,
+      "content": "Yes, there will be maintenance tomorrow at 10 AM.",
+      "timestamp": "2023-07-22 09:47"
+    }
+  ]
+  
