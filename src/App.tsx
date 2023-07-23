@@ -20,6 +20,7 @@ import PayrollReport from './pages/payroll-report/Payroll-report';
 import SalesReport from './pages/sales-report/SalesReport';
 import ContactMessages from './pages/ContactMessages/ContactMessage';
 import Settings from './pages/settings/Settings';
+import UserMessage from './pages/ContactMessages/UserMessage';
 const App = () => {
   useEffect(() => {
     AOS.init();
@@ -45,6 +46,7 @@ const App = () => {
           <Route path="/team/addNewTeamMember" element={<AddNewTeamMember/>} />
           <Route path="/team/viewTeamMember" element={<ViewTeamMember/>} />
           <Route path="/contactMessages" element={<ContactMessages/>} />
+          <Route path="/contactMessages/user/:userId" element={<UserMessage/>}/>
           <Route path="/settings" element={<Settings/>} />
 
           
